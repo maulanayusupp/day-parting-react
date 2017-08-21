@@ -12,7 +12,7 @@
     display: inline-block;
     border-radius: 3px;
 }
-.DayBlock.isHover {
+.DayBlock.isClicked {
 	background-color:#0280BA;
 	color: #ffffff;
 }

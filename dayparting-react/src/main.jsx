@@ -64,33 +64,28 @@ class DayBlock extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isHovered: '',
+			isClicked: '',
 		};
 
-		this.handleHover = this.handleHover.bind(this);
-		this.handleLeaveHover = this.handleLeaveHover.bind(this);
 		this.handleOnDrag = this.handleOnDrag.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 		this.handleDragEnter = this.handleDragEnter.bind(this);
 		this.handleDragEnd = this.handleDragEnd.bind(this);
-	}
-
-	handleHover () {
-		console.log(this.props.isDraggable)
-		if (this.props.isDraggable) {
-			this.setState({
-		        isHovered: true
-		    });
-		}
+		this.handleOnDragOver = this.handleOnDragOver.bind(this);
 	}
 
 	handleOnDrag () {
-		console.log(this.props.isDraggable)
+		console.log("on drag")
 		return this.props.dragging(true);
 	}
 
-	handleLeaveHover () {
-		return this.props.dragging(false);
+	handleOnDragOver () {
+		console.log("on drag over")
+		if (this.props.isDraggable) {
+			this.setState({
+		        isClicked: true
+		    });
+		}
 	}
 
 	handleDragEnter () {
@@ -104,19 +99,21 @@ class DayBlock extends Component {
 	}
 
 	handleClick () {
+		console.log("click")
+		var isClicked = this.state.isClicked ? false : true;
 		this.setState({
-	        isHovered: true
+	        isClicked: isClicked
 	    });
+
 	}
 
 	render () {
-		const isHover = this.state.isHovered ? "DayBlock isHover" : "DayBlock";
+		const isClicked = this.state.isClicked ? "DayBlock isClicked" : "DayBlock";
 		return (
 			<div
-				className={isHover}
-				// onDrag={this.handleOnDrag}
-				onMouseEnter={this.handleHover}
-				onMouseLeave={this.handleLeaveHover}
+				className={isClicked}
+				onDrag={this.handleOnDrag}
+				onDragOver={this.handleOnDragOver}
 				onClick={this.handleClick}
 				onDragEnter={this.handleDragEnter}
 				onDragEnd={this.handleDragEnd}

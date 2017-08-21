@@ -9858,38 +9858,32 @@ var DayBlock = function (_Component3) {
 		var _this3 = _possibleConstructorReturn(this, (DayBlock.__proto__ || Object.getPrototypeOf(DayBlock)).call(this, props));
 
 		_this3.state = {
-			isHovered: ''
+			isClicked: ''
 		};
 
-		_this3.handleHover = _this3.handleHover.bind(_this3);
-		_this3.handleLeaveHover = _this3.handleLeaveHover.bind(_this3);
 		_this3.handleOnDrag = _this3.handleOnDrag.bind(_this3);
 		_this3.handleClick = _this3.handleClick.bind(_this3);
 		_this3.handleDragEnter = _this3.handleDragEnter.bind(_this3);
 		_this3.handleDragEnd = _this3.handleDragEnd.bind(_this3);
+		_this3.handleOnDragOver = _this3.handleOnDragOver.bind(_this3);
 		return _this3;
 	}
 
 	_createClass(DayBlock, [{
-		key: 'handleHover',
-		value: function handleHover() {
-			console.log(this.props.isDraggable);
-			if (this.props.isDraggable) {
-				this.setState({
-					isHovered: true
-				});
-			}
-		}
-	}, {
 		key: 'handleOnDrag',
 		value: function handleOnDrag() {
-			console.log(this.props.isDraggable);
+			console.log("on drag");
 			return this.props.dragging(true);
 		}
 	}, {
-		key: 'handleLeaveHover',
-		value: function handleLeaveHover() {
-			return this.props.dragging(false);
+		key: 'handleOnDragOver',
+		value: function handleOnDragOver() {
+			console.log("on drag over");
+			if (this.props.isDraggable) {
+				this.setState({
+					isClicked: true
+				});
+			}
 		}
 	}, {
 		key: 'handleDragEnter',
@@ -9906,19 +9900,20 @@ var DayBlock = function (_Component3) {
 	}, {
 		key: 'handleClick',
 		value: function handleClick() {
+			console.log("click");
+			var isClicked = this.state.isClicked ? false : true;
 			this.setState({
-				isHovered: true
+				isClicked: isClicked
 			});
 		}
 	}, {
 		key: 'render',
 		value: function render() {
-			var isHover = this.state.isHovered ? "DayBlock isHover" : "DayBlock";
+			var isClicked = this.state.isClicked ? "DayBlock isClicked" : "DayBlock";
 			return _react2.default.createElement('div', {
-				className: isHover
-				// onDrag={this.handleOnDrag}
-				, onMouseEnter: this.handleHover,
-				onMouseLeave: this.handleLeaveHover,
+				className: isClicked,
+				onDrag: this.handleOnDrag,
+				onDragOver: this.handleOnDragOver,
 				onClick: this.handleClick,
 				onDragEnter: this.handleDragEnter,
 				onDragEnd: this.handleDragEnd
@@ -22607,7 +22602,7 @@ exports = module.exports = __webpack_require__(186)(undefined);
 
 
 // module
-exports.push([module.i, ".DayParting {\n\tmargin-top: 20px;\n}\n.Day {\n\tmargin-bottom: -6px;\n}\n.DayBlock {\n\twidth: 25px;\n    background-color:#E4E7EC;\n    height: 35px;\n    margin: 1px;\n    display: inline-block;\n    border-radius: 3px;\n}\n.DayBlock.isHover {\n\tbackground-color:#0280BA;\n\tcolor: #ffffff;\n}", ""]);
+exports.push([module.i, ".DayParting {\n\tmargin-top: 20px;\n}\n.Day {\n\tmargin-bottom: -6px;\n}\n.DayBlock {\n\twidth: 25px;\n    background-color:#E4E7EC;\n    height: 35px;\n    margin: 1px;\n    display: inline-block;\n    border-radius: 3px;\n}\n.DayBlock.isClicked {\n\tbackground-color:#0280BA;\n\tcolor: #ffffff;\n}", ""]);
 
 // exports
 
