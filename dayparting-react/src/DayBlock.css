@@ -1,0 +1,18 @@
+.DayParting {
+	margin-top: 20px;
+}
+.Day {
+	margin-bottom: -6px;
+}
+.DayBlock {
+	width: 25px;
+    background-color:#E4E7EC;
+    height: 35px;
+    margin: 1px;
+    display: inline-block;
+    border-radius: 3px;
+}
+.DayBlock.isHover {
+	background-color:#0280BA;
+	color: #ffffff;
+}
