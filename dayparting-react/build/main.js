@@ -9875,6 +9875,9 @@ var DayBlock = function (_Component3) {
 		return _this3;
 	}
 
+	/* drag */
+
+
 	_createClass(DayBlock, [{
 		key: 'handleOnDrag',
 		value: function handleOnDrag() {
@@ -9909,61 +9912,57 @@ var DayBlock = function (_Component3) {
 			console.log("click");
 			this.clickBlock();
 		}
+
+		/* mouse */
+
 	}, {
 		key: 'handleMouseDown',
 		value: function handleMouseDown() {
-			console.log("Mouse down");
 			this.props.handleIsClicking(true);
 			this.clickBlock();
 		}
 	}, {
 		key: 'handleMouseUp',
 		value: function handleMouseUp() {
-			console.log("mouse up");
 			return this.props.handleIsClicking(false);
 		}
 	}, {
 		key: 'handleMouseOut',
 		value: function handleMouseOut() {
 			if (!this.props.isClicking) {
-				console.log("mouse out");
 				this.props.handleIsClicking(false);
 			}
 		}
 	}, {
 		key: 'handleMouseOver',
 		value: function handleMouseOver() {
-			console.log("mouse over");
-			console.log(this.props.isClicking);
-			// console.log(this.props.isClicking)
 			if (this.props.isClicking) {
-				console.log("mouse over down");
 				this.clickBlock();
 			}
 		}
 	}, {
 		key: 'clickBlock',
 		value: function clickBlock() {
-			console.log("blok gan");
 			var isClicked = this.state.isClicked ? false : true;
 			this.setState({
-				isClicked: true
+				isClicked: isClicked
 			});
+			console.log(this.state.isClicked);
 		}
 	}, {
 		key: 'render',
 		value: function render() {
 			var isClicked = this.state.isClicked ? "DayBlock isClicked" : "DayBlock";
 			return _react2.default.createElement('div', {
-				className: isClicked
+				className: isClicked,
+				onMouseDown: this.handleMouseDown,
+				onMouseUp: this.handleMouseUp,
+				onMouseOver: this.handleMouseOver,
+				onMouseOut: this.handleMouseOut
 				// onDrag={this.handleOnDrag}
 				// onDragOver={this.handleOnDragOver}
 				// onClick={this.handleClick}
 				// onDragEnter={this.handleDragEnter}
-				, onMouseDown: this.handleMouseDown,
-				onMouseUp: this.handleMouseUp,
-				onMouseOver: this.handleMouseOver,
-				onMouseOut: this.handleMouseOut
 				// onDragEnd={this.handleDragEnd}
 			});
 		}
@@ -22650,7 +22649,7 @@ exports = module.exports = __webpack_require__(186)(undefined);
 
 
 // module
-exports.push([module.i, ".DayParting {\n\tmargin-top: 20px;\n}\n.Day {\n\tmargin-bottom: -6px;\n}\n.DayBlock {\n\twidth: 25px;\n    background-color:#E4E7EC;\n    height: 35px;\n    margin: 1px;\n    display: inline-block;\n    border-radius: 3px;\n}\n.DayBlock.isClicked {\n\tbackground-color:#0280BA;\n\tcolor: #ffffff;\n}", ""]);
+exports.push([module.i, ".DayParting {\n\tmargin-top: 20px;\n}\n.Day {\n\tmargin-bottom: -6px;\n}\n.DayBlock {\n\twidth: 25px;\n    background-color:#E4E7EC;\n    height: 35px;\n    margin: 0.5px;\n    display: inline-block;\n    /*border: .1px solid #fff;*/\n    border-radius: 3px;\n}\n.DayBlock.isClicked {\n\tbackground-color:#0280BA;\n\tcolor: #ffffff;\n}", ""]);
 
 // exports
 

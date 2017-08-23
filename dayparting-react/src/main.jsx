@@ -32,7 +32,7 @@ class DayParting extends Component {
 		return (
 			<div className="DayPartingWrapper">
 				<div className="DayParting">
-					{days}
+					 {days}
 				</div>
 			</div>
 		)
@@ -84,11 +84,11 @@ class DayBlock extends Component {
 		this.handleMouseOut = this.handleMouseOut.bind(this);
 	}
 
+	/* drag */
 	handleOnDrag () {
 		console.log("on drag")
 		return this.props.handleIsClicking(true);
 	}
-
 	handleOnDragOver () {
 		console.log("on drag over")
 		if (this.props.isClicking) {
@@ -97,56 +97,44 @@ class DayBlock extends Component {
 		    });
 		}
 	}
-
 	handleDragEnter () {
 		console.log("drag enter")
 		return this.props.handleIsClicking(true);
 	}
-
 	handleDragEnd () {
 		console.log("drag exit")
 		return this.props.handleIsClicking(false);
 	}
-
 	handleClick () {
 		console.log("click")
 		this.clickBlock();
 	}
 
+	/* mouse */
 	handleMouseDown () {
-		console.log("Mouse down")
 		this.props.handleIsClicking(true);
 		this.clickBlock();
 	}
-
 	handleMouseUp () {
-		console.log("mouse up")
 		return this.props.handleIsClicking(false);
 	}
-
 	handleMouseOut () {
 		if (!this.props.isClicking) {
-			console.log("mouse out")
 			this.props.handleIsClicking(false);
 		}
 	}
-
 	handleMouseOver () {
-		console.log("mouse over")
-		console.log(this.props.isClicking)
-		// console.log(this.props.isClicking)
 		if (this.props.isClicking) {
-			console.log("mouse over down")
 			this.clickBlock();
 		}
 	}
 
 	clickBlock () {
-		console.log("blok gan")
 		var isClicked = this.state.isClicked ? false : true;
 		this.setState({
-	        isClicked: true
+	        isClicked: isClicked
 	    });
+	    console.log(this.state.isClicked)
 	}
 
 	render () {
@@ -154,21 +142,20 @@ class DayBlock extends Component {
 		return (
 			<div
 				className={isClicked}
-				// onDrag={this.handleOnDrag}
-				// onDragOver={this.handleOnDragOver}
-				// onClick={this.handleClick}
-				// onDragEnter={this.handleDragEnter}
 				onMouseDown={this.handleMouseDown}
 				onMouseUp={this.handleMouseUp}
 				onMouseOver={this.handleMouseOver}
 				onMouseOut={this.handleMouseOut}
+				// onDrag={this.handleOnDrag}
+				// onDragOver={this.handleOnDragOver}
+				// onClick={this.handleClick}
+				// onDragEnter={this.handleDragEnter}
 				// onDragEnd={this.handleDragEnd}
 				>
 			</div>
 		)
 	}
 }
-
 
 ReactDOM.render(
   <DayParting />,

@@ -8,8 +8,9 @@
 	width: 25px;
     background-color:#E4E7EC;
     height: 35px;
-    margin: 1px;
+    margin: 0.5px;
     display: inline-block;
+    /*border: .1px solid #fff;*/
     border-radius: 3px;
 }
 .DayBlock.isClicked {
