@@ -9771,16 +9771,30 @@ var DayParting = function (_Component) {
 
 		var _this = _possibleConstructorReturn(this, (DayParting.__proto__ || Object.getPrototypeOf(DayParting)).call(this, props));
 
-		_this.state = {};
+		_this.state = {
+			isClicking: false
+		};
+		_this.handleIsClicking = _this.handleIsClicking.bind(_this);
 		return _this;
 	}
 
 	_createClass(DayParting, [{
+		key: 'handleIsClicking',
+		value: function handleIsClicking(isClick) {
+			this.setState({
+				isClicking: isClick
+			});
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			var days = [];
 			for (var i = 0; i < 7; i++) {
-				days.push(_react2.default.createElement(Day, { key: i }));
+				days.push(_react2.default.createElement(Day, {
+					key: i,
+					handleIsClicking: this.handleIsClicking,
+					isClicking: this.state.isClicking
+				}));
 			}
 			return _react2.default.createElement(
 				'div',
@@ -9808,31 +9822,19 @@ var Day = function (_Component2) {
 
 		var _this2 = _possibleConstructorReturn(this, (Day.__proto__ || Object.getPrototypeOf(Day)).call(this, props));
 
-		_this2.state = {
-			isDraggable: false
-		};
-		_this2.dragging = _this2.dragging.bind(_this2);
+		_this2.state = {};
 		return _this2;
 	}
 
 	_createClass(Day, [{
-		key: 'dragging',
-		value: function dragging() {
-			var isDrag = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-			this.setState({
-				isDraggable: isDrag
-			});
-		}
-	}, {
 		key: 'render',
 		value: function render() {
 			var blocks = [];
 			for (var i = 0; i < 24; i++) {
 				blocks.push(_react2.default.createElement(DayBlock, {
 					key: i,
-					dragging: this.dragging,
-					isDraggable: this.state.isDraggable
+					handleIsClicking: this.props.handleIsClicking,
+					isClicking: this.props.isClicking
 				}));
 			}
 			return _react2.default.createElement(
@@ -9866,6 +9868,10 @@ var DayBlock = function (_Component3) {
 		_this3.handleDragEnter = _this3.handleDragEnter.bind(_this3);
 		_this3.handleDragEnd = _this3.handleDragEnd.bind(_this3);
 		_this3.handleOnDragOver = _this3.handleOnDragOver.bind(_this3);
+		_this3.handleMouseDown = _this3.handleMouseDown.bind(_this3);
+		_this3.handleMouseOver = _this3.handleMouseOver.bind(_this3);
+		_this3.handleMouseUp = _this3.handleMouseUp.bind(_this3);
+		_this3.handleMouseOut = _this3.handleMouseOut.bind(_this3);
 		return _this3;
 	}
 
@@ -9873,13 +9879,13 @@ var DayBlock = function (_Component3) {
 		key: 'handleOnDrag',
 		value: function handleOnDrag() {
 			console.log("on drag");
-			return this.props.dragging(true);
+			return this.props.handleIsClicking(true);
 		}
 	}, {
 		key: 'handleOnDragOver',
 		value: function handleOnDragOver() {
 			console.log("on drag over");
-			if (this.props.isDraggable) {
+			if (this.props.isClicking) {
 				this.setState({
 					isClicked: true
 				});
@@ -9889,21 +9895,59 @@ var DayBlock = function (_Component3) {
 		key: 'handleDragEnter',
 		value: function handleDragEnter() {
 			console.log("drag enter");
-			return this.props.dragging(true);
+			return this.props.handleIsClicking(true);
 		}
 	}, {
 		key: 'handleDragEnd',
 		value: function handleDragEnd() {
 			console.log("drag exit");
-			return this.props.dragging(false);
+			return this.props.handleIsClicking(false);
 		}
 	}, {
 		key: 'handleClick',
 		value: function handleClick() {
 			console.log("click");
+			this.clickBlock();
+		}
+	}, {
+		key: 'handleMouseDown',
+		value: function handleMouseDown() {
+			console.log("Mouse down");
+			this.props.handleIsClicking(true);
+			this.clickBlock();
+		}
+	}, {
+		key: 'handleMouseUp',
+		value: function handleMouseUp() {
+			console.log("mouse up");
+			return this.props.handleIsClicking(false);
+		}
+	}, {
+		key: 'handleMouseOut',
+		value: function handleMouseOut() {
+			if (!this.props.isClicking) {
+				console.log("mouse out");
+				this.props.handleIsClicking(false);
+			}
+		}
+	}, {
+		key: 'handleMouseOver',
+		value: function handleMouseOver() {
+			console.log("mouse over");
+			console.log(this.props.isClicking);
+			// console.log(this.props.isClicking)
+			if (this.props.isClicking) {
+				console.log("mouse over down");
+				this.clickBlock();
+			}
+		}
+	}, {
+		key: 'clickBlock',
+		value: function clickBlock() {
+			console.log("blok gan");
 			var isClicked = this.state.isClicked ? false : true;
 			this.setState({
-				isClicked: isClicked
+				isClicked: true
 			});
 		}
 	}, {
@@ -9911,12 +9955,16 @@ var DayBlock = function (_Component3) {
 		value: function render() {
 			var isClicked = this.state.isClicked ? "DayBlock isClicked" : "DayBlock";
 			return _react2.default.createElement('div', {
-				className: isClicked,
-				onDrag: this.handleOnDrag,
-				onDragOver: this.handleOnDragOver,
-				onClick: this.handleClick,
-				onDragEnter: this.handleDragEnter,
-				onDragEnd: this.handleDragEnd
+				className: isClicked
+				// onDrag={this.handleOnDrag}
+				// onDragOver={this.handleOnDragOver}
+				// onClick={this.handleClick}
+				// onDragEnter={this.handleDragEnter}
+				, onMouseDown: this.handleMouseDown,
+				onMouseUp: this.handleMouseUp,
+				onMouseOver: this.handleMouseOver,
+				onMouseOut: this.handleMouseOut
+				// onDragEnd={this.handleDragEnd}
 			});
 		}
 	}]);
