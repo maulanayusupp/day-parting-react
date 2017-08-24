@@ -89,17 +89,14 @@ class DayBlock extends Component {
 		this.handleMouseDown = this.handleMouseDown.bind(this);
 		this.handleMouseOver = this.handleMouseOver.bind(this);
 		this.handleMouseUp = this.handleMouseUp.bind(this);
-		this.handleClicking = this.handleClicking.bind(this);
 	}
 
-	handleClicking (isClicked) {
-		return this.props.handleIsBlocking(isClicked);
-	}
 	/* mouse */
 	handleMouseDown (event) {
 		event.preventDefault();
 		var isClicked = this.state.isClicked ? false : true;
-		this.handleClicking(isClicked);
+		console.log(window.location.href)
+		this.props.handleIsBlocking(isClicked);
 
 		/* clicking parent */
 		this.props.handleIsClicking(true);

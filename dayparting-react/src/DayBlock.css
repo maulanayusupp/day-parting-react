@@ -10,15 +10,8 @@
     height: 35px;
     margin: 0.5px;
     display: inline-block;
-    /*border: .1px solid #fff;*/
     border-radius: 3px;
-
     cursor: pointer;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    user-drag: none;
 }
 .DayBlock.isClicked {
 	background: linear-gradient(#6279ae, #5870a8);

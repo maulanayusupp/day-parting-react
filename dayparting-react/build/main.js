@@ -9880,23 +9880,19 @@ var DayBlock = function (_Component3) {
 		_this3.handleMouseDown = _this3.handleMouseDown.bind(_this3);
 		_this3.handleMouseOver = _this3.handleMouseOver.bind(_this3);
 		_this3.handleMouseUp = _this3.handleMouseUp.bind(_this3);
-		_this3.handleClicking = _this3.handleClicking.bind(_this3);
 		return _this3;
 	}
 
-	_createClass(DayBlock, [{
-		key: 'handleClicking',
-		value: function handleClicking(isClicked) {
-			return this.props.handleIsBlocking(isClicked);
-		}
-		/* mouse */
+	/* mouse */
 
-	}, {
+
+	_createClass(DayBlock, [{
 		key: 'handleMouseDown',
 		value: function handleMouseDown(event) {
 			event.preventDefault();
 			var isClicked = this.state.isClicked ? false : true;
-			this.handleClicking(isClicked);
+			console.log(window.location.href);
+			this.props.handleIsBlocking(isClicked);
 
 			/* clicking parent */
 			this.props.handleIsClicking(true);
@@ -22615,7 +22611,7 @@ exports = module.exports = __webpack_require__(186)(undefined);
 
 
 // module
-exports.push([module.i, ".DayParting {\n\tmargin-top: 20px;\n}\n.Day {\n\tmargin-bottom: -6px;\n}\n.DayBlock {\n\twidth: 20px;\n    background-color:#E4E7EC;\n    height: 35px;\n    margin: 0.5px;\n    display: inline-block;\n    /*border: .1px solid #fff;*/\n    border-radius: 3px;\n\n    cursor: pointer;\n    -webkit-user-drag: none;\n    -khtml-user-drag: none;\n    -moz-user-drag: none;\n    -o-user-drag: none;\n    user-drag: none;\n}\n.DayBlock.isClicked {\n\tbackground: linear-gradient(#6279ae, #5870a8);\n    background-color: #cbd3db;\n    border-right: 1px solid #6f859b;\n}", ""]);
+exports.push([module.i, ".DayParting {\n\tmargin-top: 20px;\n}\n.Day {\n\tmargin-bottom: -6px;\n}\n.DayBlock {\n\twidth: 20px;\n    background-color:#E4E7EC;\n    height: 35px;\n    margin: 0.5px;\n    display: inline-block;\n    border-radius: 3px;\n    cursor: pointer;\n}\n.DayBlock.isClicked {\n\tbackground: linear-gradient(#6279ae, #5870a8);\n    background-color: #cbd3db;\n    border-right: 1px solid #6f859b;\n}", ""]);
 
 // exports
 
