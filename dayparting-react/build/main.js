@@ -9772,9 +9772,11 @@ var DayParting = function (_Component) {
 		var _this = _possibleConstructorReturn(this, (DayParting.__proto__ || Object.getPrototypeOf(DayParting)).call(this, props));
 
 		_this.state = {
-			isClicking: false
+			isClicking: false,
+			isBlocking: false
 		};
 		_this.handleIsClicking = _this.handleIsClicking.bind(_this);
+		_this.handleIsBlocking = _this.handleIsBlocking.bind(_this);
 		return _this;
 	}
 
@@ -9786,6 +9788,14 @@ var DayParting = function (_Component) {
 			});
 		}
 	}, {
+		key: 'handleIsBlocking',
+		value: function handleIsBlocking(isBlock) {
+			console.log(isBlock);
+			this.setState({
+				isBlocking: isBlock
+			});
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			var days = [];
@@ -9793,7 +9803,9 @@ var DayParting = function (_Component) {
 				days.push(_react2.default.createElement(Day, {
 					key: i,
 					handleIsClicking: this.handleIsClicking,
-					isClicking: this.state.isClicking
+					handleIsBlocking: this.handleIsBlocking,
+					isClicking: this.state.isClicking,
+					isBlocking: this.state.isBlocking
 				}));
 			}
 			return _react2.default.createElement(
@@ -9834,7 +9846,9 @@ var Day = function (_Component2) {
 				blocks.push(_react2.default.createElement(DayBlock, {
 					key: i,
 					handleIsClicking: this.props.handleIsClicking,
-					isClicking: this.props.isClicking
+					handleIsBlocking: this.props.handleIsBlocking,
+					isClicking: this.props.isClicking,
+					isBlocking: this.props.isBlocking
 				}));
 			}
 			return _react2.default.createElement(
@@ -9863,61 +9877,28 @@ var DayBlock = function (_Component3) {
 			isClicked: ''
 		};
 
-		_this3.handleOnDrag = _this3.handleOnDrag.bind(_this3);
-		_this3.handleClick = _this3.handleClick.bind(_this3);
-		_this3.handleDragEnter = _this3.handleDragEnter.bind(_this3);
-		_this3.handleDragEnd = _this3.handleDragEnd.bind(_this3);
-		_this3.handleOnDragOver = _this3.handleOnDragOver.bind(_this3);
 		_this3.handleMouseDown = _this3.handleMouseDown.bind(_this3);
 		_this3.handleMouseOver = _this3.handleMouseOver.bind(_this3);
 		_this3.handleMouseUp = _this3.handleMouseUp.bind(_this3);
-		_this3.handleMouseOut = _this3.handleMouseOut.bind(_this3);
+		_this3.handleClicking = _this3.handleClicking.bind(_this3);
 		return _this3;
 	}
 
-	/* drag */
-
-
 	_createClass(DayBlock, [{
-		key: 'handleOnDrag',
-		value: function handleOnDrag() {
-			console.log("on drag");
-			return this.props.handleIsClicking(true);
+		key: 'handleClicking',
+		value: function handleClicking(isClicked) {
+			return this.props.handleIsBlocking(isClicked);
 		}
-	}, {
-		key: 'handleOnDragOver',
-		value: function handleOnDragOver() {
-			console.log("on drag over");
-			if (this.props.isClicking) {
-				this.setState({
-					isClicked: true
-				});
-			}
-		}
-	}, {
-		key: 'handleDragEnter',
-		value: function handleDragEnter() {
-			console.log("drag enter");
-			return this.props.handleIsClicking(true);
-		}
-	}, {
-		key: 'handleDragEnd',
-		value: function handleDragEnd() {
-			console.log("drag exit");
-			return this.props.handleIsClicking(false);
-		}
-	}, {
-		key: 'handleClick',
-		value: function handleClick() {
-			console.log("click");
-			this.clickBlock();
-		}
-
 		/* mouse */
 
 	}, {
 		key: 'handleMouseDown',
-		value: function handleMouseDown() {
+		value: function handleMouseDown(event) {
+			event.preventDefault();
+			var isClicked = this.state.isClicked ? false : true;
+			this.handleClicking(isClicked);
+
+			/* clicking parent */
 			this.props.handleIsClicking(true);
 			this.clickBlock();
 		}
@@ -9925,13 +9906,6 @@ var DayBlock = function (_Component3) {
 		key: 'handleMouseUp',
 		value: function handleMouseUp() {
 			return this.props.handleIsClicking(false);
-		}
-	}, {
-		key: 'handleMouseOut',
-		value: function handleMouseOut() {
-			if (!this.props.isClicking) {
-				this.props.handleIsClicking(false);
-			}
 		}
 	}, {
 		key: 'handleMouseOver',
@@ -9943,11 +9917,9 @@ var DayBlock = function (_Component3) {
 	}, {
 		key: 'clickBlock',
 		value: function clickBlock() {
-			var isClicked = this.state.isClicked ? false : true;
 			this.setState({
-				isClicked: isClicked
+				isClicked: this.props.isBlocking
 			});
-			console.log(this.state.isClicked);
 		}
 	}, {
 		key: 'render',
@@ -9957,13 +9929,7 @@ var DayBlock = function (_Component3) {
 				className: isClicked,
 				onMouseDown: this.handleMouseDown,
 				onMouseUp: this.handleMouseUp,
-				onMouseOver: this.handleMouseOver,
-				onMouseOut: this.handleMouseOut
-				// onDrag={this.handleOnDrag}
-				// onDragOver={this.handleOnDragOver}
-				// onClick={this.handleClick}
-				// onDragEnter={this.handleDragEnter}
-				// onDragEnd={this.handleDragEnd}
+				onMouseOver: this.handleMouseOver
 			});
 		}
 	}]);
@@ -22649,7 +22615,7 @@ exports = module.exports = __webpack_require__(186)(undefined);
 
 
 // module
-exports.push([module.i, ".DayParting {\n\tmargin-top: 20px;\n}\n.Day {\n\tmargin-bottom: -6px;\n}\n.DayBlock {\n\twidth: 25px;\n    background-color:#E4E7EC;\n    height: 35px;\n    margin: 0.5px;\n    display: inline-block;\n    /*border: .1px solid #fff;*/\n    border-radius: 3px;\n}\n.DayBlock.isClicked {\n\tbackground-color:#0280BA;\n\tcolor: #ffffff;\n}", ""]);
+exports.push([module.i, ".DayParting {\n\tmargin-top: 20px;\n}\n.Day {\n\tmargin-bottom: -6px;\n}\n.DayBlock {\n\twidth: 20px;\n    background-color:#E4E7EC;\n    height: 35px;\n    margin: 0.5px;\n    display: inline-block;\n    /*border: .1px solid #fff;*/\n    border-radius: 3px;\n\n    cursor: pointer;\n    -webkit-user-drag: none;\n    -khtml-user-drag: none;\n    -moz-user-drag: none;\n    -o-user-drag: none;\n    user-drag: none;\n}\n.DayBlock.isClicked {\n\tbackground: linear-gradient(#6279ae, #5870a8);\n    background-color: #cbd3db;\n    border-right: 1px solid #6f859b;\n}", ""]);
 
 // exports
 

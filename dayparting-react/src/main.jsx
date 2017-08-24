@@ -8,13 +8,22 @@ class DayParting extends Component {
 	  	super(props);
 	  	this.state = {
 			isClicking: false,
+			isBlocking: false,
 	  	};
 	  	this.handleIsClicking = this.handleIsClicking.bind(this);
+	  	this.handleIsBlocking = this.handleIsBlocking.bind(this);
 	}
 
 	handleIsClicking (isClick) {
 		this.setState({
 	        isClicking: isClick
+	    });
+	}
+
+	handleIsBlocking (isBlock) {
+		console.log(isBlock)
+		this.setState({
+	        isBlocking: isBlock
 	    });
 	}
 
@@ -25,7 +34,9 @@ class DayParting extends Component {
 				<Day
 					key={i}
 					handleIsClicking={this.handleIsClicking}
+					handleIsBlocking={this.handleIsBlocking}
 					isClicking={this.state.isClicking}
+					isBlocking={this.state.isBlocking}
 				/>
 			);
 		}
@@ -53,7 +64,9 @@ class Day extends Component {
 				<DayBlock
 					key={i}
 					handleIsClicking={this.props.handleIsClicking}
+					handleIsBlocking={this.props.handleIsBlocking}
 					isClicking={this.props.isClicking}
+					isBlocking={this.props.isBlocking}
 				/>
 			);
 		}
@@ -73,68 +86,37 @@ class DayBlock extends Component {
 			isClicked: '',
 		};
 
-		this.handleOnDrag = this.handleOnDrag.bind(this);
-		this.handleClick = this.handleClick.bind(this);
-		this.handleDragEnter = this.handleDragEnter.bind(this);
-		this.handleDragEnd = this.handleDragEnd.bind(this);
-		this.handleOnDragOver = this.handleOnDragOver.bind(this);
 		this.handleMouseDown = this.handleMouseDown.bind(this);
 		this.handleMouseOver = this.handleMouseOver.bind(this);
 		this.handleMouseUp = this.handleMouseUp.bind(this);
-		this.handleMouseOut = this.handleMouseOut.bind(this);
+		this.handleClicking = this.handleClicking.bind(this);
 	}
 
-	/* drag */
-	handleOnDrag () {
-		console.log("on drag")
-		return this.props.handleIsClicking(true);
+	handleClicking (isClicked) {
+		return this.props.handleIsBlocking(isClicked);
 	}
-	handleOnDragOver () {
-		console.log("on drag over")
-		if (this.props.isClicking) {
-			this.setState({
-		        isClicked: true
-		    });
-		}
-	}
-	handleDragEnter () {
-		console.log("drag enter")
-		return this.props.handleIsClicking(true);
-	}
-	handleDragEnd () {
-		console.log("drag exit")
-		return this.props.handleIsClicking(false);
-	}
-	handleClick () {
-		console.log("click")
-		this.clickBlock();
-	}
-
 	/* mouse */
-	handleMouseDown () {
+	handleMouseDown (event) {
+		event.preventDefault();
+		var isClicked = this.state.isClicked ? false : true;
+		this.handleClicking(isClicked);
+
+		/* clicking parent */
 		this.props.handleIsClicking(true);
 		this.clickBlock();
 	}
 	handleMouseUp () {
 		return this.props.handleIsClicking(false);
 	}
-	handleMouseOut () {
-		if (!this.props.isClicking) {
-			this.props.handleIsClicking(false);
-		}
-	}
 	handleMouseOver () {
 		if (this.props.isClicking) {
 			this.clickBlock();
 		}
 	}
-
 	clickBlock () {
-		var isClicked = this.state.isClicked ? false : true;
 		this.setState({
-	        isClicked: isClicked
+	        isClicked: this.props.isBlocking
 	    });
-	    console.log(this.state.isClicked)
 	}
 
 	render () {
@@ -145,12 +127,6 @@ class DayBlock extends Component {
 				onMouseDown={this.handleMouseDown}
 				onMouseUp={this.handleMouseUp}
 				onMouseOver={this.handleMouseOver}
-				onMouseOut={this.handleMouseOut}
-				// onDrag={this.handleOnDrag}
-				// onDragOver={this.handleOnDragOver}
-				// onClick={this.handleClick}
-				// onDragEnter={this.handleDragEnter}
-				// onDragEnd={this.handleDragEnd}
 				>
 			</div>
 		)
