@@ -9774,11 +9774,13 @@ var DayParting = function (_Component) {
 		_this.state = {
 			isClicking: false,
 			isBlocking: false,
+			isHolding: false,
 
 			myDays: [{ id: 1, name: 'Monday' }, { id: 2, name: 'Tuesday' }, { id: 3, name: 'Wednesday' }, { id: 4, name: 'Thursday' }, { id: 5, name: 'Friday' }, { id: 6, name: 'Saturday' }, { id: 7, name: 'Sunday' }]
 		};
 		_this.handleIsClicking = _this.handleIsClicking.bind(_this);
 		_this.handleIsBlocking = _this.handleIsBlocking.bind(_this);
+		_this.handleIsHolding = _this.handleIsHolding.bind(_this);
 		_this.handleMouseLeave = _this.handleMouseLeave.bind(_this);
 		return _this;
 	}
@@ -9798,10 +9800,18 @@ var DayParting = function (_Component) {
 			});
 		}
 	}, {
+		key: 'handleIsHolding',
+		value: function handleIsHolding(isHolding) {
+			this.setState({
+				isHolding: isHolding
+			});
+		}
+	}, {
 		key: 'handleMouseLeave',
 		value: function handleMouseLeave() {
 			this.setState({
 				isBlocking: false,
+				isHolding: false,
 				isClicking: false
 			});
 		}
@@ -9817,8 +9827,10 @@ var DayParting = function (_Component) {
 					day: day,
 					handleIsClicking: this.handleIsClicking,
 					handleIsBlocking: this.handleIsBlocking,
+					handleIsHolding: this.handleIsHolding,
 					isClicking: this.state.isClicking,
-					isBlocking: this.state.isBlocking
+					isBlocking: this.state.isBlocking,
+					isHolding: this.state.isHolding
 				}));
 			}
 			return _react2.default.createElement(
@@ -9869,8 +9881,10 @@ var Day = function (_Component2) {
 					day: this.props.day,
 					handleIsClicking: this.props.handleIsClicking,
 					handleIsBlocking: this.props.handleIsBlocking,
+					handleIsHolding: this.props.handleIsHolding,
 					isClicking: this.props.isClicking,
-					isBlocking: this.props.isBlocking
+					isBlocking: this.props.isBlocking,
+					isHolding: this.props.isHolding
 				}));
 			}
 			return _react2.default.createElement(
@@ -9896,7 +9910,7 @@ var DayBlock = function (_Component3) {
 		var _this3 = _possibleConstructorReturn(this, (DayBlock.__proto__ || Object.getPrototypeOf(DayBlock)).call(this, props));
 
 		_this3.state = {
-			isClicked: ''
+			isClicked: false
 		};
 
 		_this3.handleMouseDown = _this3.handleMouseDown.bind(_this3);
@@ -9909,35 +9923,72 @@ var DayBlock = function (_Component3) {
 
 
 	_createClass(DayBlock, [{
+		key: 'showValue',
+		value: function showValue() {
+			console.log('Day: ' + this.props.day.name);
+			console.log('Time: ' + this.props.time.name);
+			console.log('Type: ' + this.props.time.type);
+		}
+	}, {
 		key: 'mouseClicked',
 		value: function mouseClicked() {
-			var isIt = true;
-			if (!this.props.isBlocking) {
+			console.log("Blocking: " + this.props.isBlocking);
+			var isIt = this.state.isClicked;
+			var block = this.props.isBlocking;
+			var holding = this.props.isHolding;
+			if (holding) {
+				if (!block && !isIt) {
+					isIt = true;
+					console.log("Teu");
+				} else if (!block && isIt) {
+					isIt = true;
+					console.log("Sarua");
+				} else if (block && isIt) {
+					isIt = false;
+					console.log("Beda");
+				}
+			} else {
 				isIt = this.state.isClicked ? false : true;
 			}
+			/*if (!this.props.isBlocking) {
+   	isIt = this.state.isClicked ? false : true;
+   } else {
+   	isIt = this.state.isClicked;
+   	var block = this.props.isBlocking;
+   	if ((!block) && (!isIt)) {
+   		isIt = true;
+   		console.log("Teu")
+   	} else if ((block) && (isIt)) {
+   		isIt = false;
+   		console.log("Sarua")
+   	} else if ((block) && (!isIt)) {
+   		isIt = true;
+   		console.log("Beda")
+   	} else {
+   		isIt = true;
+   	}
+   }*/
+
 			return isIt;
 		}
 	}, {
 		key: 'handleMouseDown',
 		value: function handleMouseDown(event) {
 			event.preventDefault();
-			var isClicked = this.mouseClicked();
-			// var isClicked = this.state.isClicked ? false : true;
-
-			this.props.handleIsBlocking(isClicked);
-
-			console.log('Day: ' + this.props.day.name);
-			console.log('Time: ' + this.props.time.name);
-			console.log('Type: ' + this.props.time.type);
-
-			/* clicking parent */
+			var isIt = this.state.isClicked;
+			this.props.handleIsBlocking(isIt);
+			this.props.handleIsHolding(true);
 			this.props.handleIsClicking(true);
+
+			var isClicked = this.mouseClicked();
 			this.clickBlock(isClicked);
 		}
 	}, {
 		key: 'handleMouseUp',
 		value: function handleMouseUp() {
-			return this.props.handleIsClicking(false);
+			this.props.handleIsClicking(false);
+			this.props.handleIsBlocking(false);
+			this.props.handleIsHolding(false);
 		}
 	}, {
 		key: 'handleMouseOver',
@@ -9945,9 +9996,6 @@ var DayBlock = function (_Component3) {
 			if (this.props.isClicking) {
 				var isClicked = this.mouseClicked();
 				this.clickBlock(isClicked);
-				console.log('Day: ' + this.props.day.name);
-				console.log('Time: ' + this.props.time.name);
-				console.log('Type: ' + this.props.time.type);
 			}
 		}
 	}, {
