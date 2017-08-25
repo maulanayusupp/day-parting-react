@@ -9918,6 +9918,7 @@ var DayBlock = function (_Component3) {
 		_this3.handleMouseUp = _this3.handleMouseUp.bind(_this3);
 		return _this3;
 	}
+
 	/* show value per block */
 
 

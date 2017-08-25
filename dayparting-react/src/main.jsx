@@ -157,6 +157,7 @@ class DayBlock extends Component {
 		this.handleMouseOver = this.handleMouseOver.bind(this);
 		this.handleMouseUp = this.handleMouseUp.bind(this);
 	}
+
 	/* show value per block */
 	showValue () {
 		console.log('Day: ' + this.props.day.name);
