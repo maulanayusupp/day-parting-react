@@ -9918,8 +9918,7 @@ var DayBlock = function (_Component3) {
 		_this3.handleMouseUp = _this3.handleMouseUp.bind(_this3);
 		return _this3;
 	}
-
-	/* mouse */
+	/* show value per block */
 
 
 	_createClass(DayBlock, [{
@@ -9929,6 +9928,9 @@ var DayBlock = function (_Component3) {
 			console.log('Time: ' + this.props.time.name);
 			console.log('Type: ' + this.props.time.type);
 		}
+
+		/* mouse clicked */
+
 	}, {
 		key: 'mouseClicked',
 		value: function mouseClicked() {
@@ -9939,38 +9941,19 @@ var DayBlock = function (_Component3) {
 			if (holding) {
 				if (!block && !isIt) {
 					isIt = true;
-					console.log("Teu");
 				} else if (!block && isIt) {
 					isIt = true;
-					console.log("Sarua");
 				} else if (block && isIt) {
 					isIt = false;
-					console.log("Beda");
 				}
 			} else {
 				isIt = this.state.isClicked ? false : true;
 			}
-			/*if (!this.props.isBlocking) {
-   	isIt = this.state.isClicked ? false : true;
-   } else {
-   	isIt = this.state.isClicked;
-   	var block = this.props.isBlocking;
-   	if ((!block) && (!isIt)) {
-   		isIt = true;
-   		console.log("Teu")
-   	} else if ((block) && (isIt)) {
-   		isIt = false;
-   		console.log("Sarua")
-   	} else if ((block) && (!isIt)) {
-   		isIt = true;
-   		console.log("Beda")
-   	} else {
-   		isIt = true;
-   	}
-   }*/
-
 			return isIt;
 		}
+
+		/* mouse down clicked */
+
 	}, {
 		key: 'handleMouseDown',
 		value: function handleMouseDown(event) {
@@ -9983,6 +9966,9 @@ var DayBlock = function (_Component3) {
 			var isClicked = this.mouseClicked();
 			this.clickBlock(isClicked);
 		}
+
+		/* mouse up */
+
 	}, {
 		key: 'handleMouseUp',
 		value: function handleMouseUp() {
@@ -9990,6 +9976,9 @@ var DayBlock = function (_Component3) {
 			this.props.handleIsBlocking(false);
 			this.props.handleIsHolding(false);
 		}
+
+		/* mouse over block */
+
 	}, {
 		key: 'handleMouseOver',
 		value: function handleMouseOver() {
@@ -9998,6 +9987,9 @@ var DayBlock = function (_Component3) {
 				this.clickBlock(isClicked);
 			}
 		}
+
+		/* click block */
+
 	}, {
 		key: 'clickBlock',
 		value: function clickBlock(isClicked) {

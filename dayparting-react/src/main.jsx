@@ -157,13 +157,14 @@ class DayBlock extends Component {
 		this.handleMouseOver = this.handleMouseOver.bind(this);
 		this.handleMouseUp = this.handleMouseUp.bind(this);
 	}
-
-	/* mouse */
+	/* show value per block */
 	showValue () {
 		console.log('Day: ' + this.props.day.name);
 		console.log('Time: ' + this.props.time.name);
 		console.log('Type: ' + this.props.time.type);
 	}
+
+	/* mouse clicked */
 	mouseClicked () {
 		console.log("Blocking: " + this.props.isBlocking)
 		var isIt = this.state.isClicked;
@@ -172,38 +173,18 @@ class DayBlock extends Component {
 		if (holding) {
 			if ((!block) && (!isIt)) {
 				isIt = true;
-				console.log("Teu")
 			} else if ((!block) && (isIt)) {
 				isIt = true;
-				console.log("Sarua")
 			} else if ((block) && (isIt)) {
 				isIt = false;
-				console.log("Beda")
 			}
 		} else {
 			isIt = this.state.isClicked ? false : true;
 		}
-		/*if (!this.props.isBlocking) {
-			isIt = this.state.isClicked ? false : true;
-		} else {
-			isIt = this.state.isClicked;
-			var block = this.props.isBlocking;
-			if ((!block) && (!isIt)) {
-				isIt = true;
-				console.log("Teu")
-			} else if ((block) && (isIt)) {
-				isIt = false;
-				console.log("Sarua")
-			} else if ((block) && (!isIt)) {
-				isIt = true;
-				console.log("Beda")
-			} else {
-				isIt = true;
-			}
-		}*/
-
 		return isIt;
 	}
+
+	/* mouse down clicked */
 	handleMouseDown (event) {
 		event.preventDefault();
 		var isIt = this.state.isClicked;
@@ -214,23 +195,28 @@ class DayBlock extends Component {
 		var isClicked = this.mouseClicked();
 		this.clickBlock(isClicked);
 	}
+
+	/* mouse up */
 	handleMouseUp () {
 		this.props.handleIsClicking(false);
 		this.props.handleIsBlocking(false);
 		this.props.handleIsHolding(false);
 	}
+
+	/* mouse over block */
 	handleMouseOver () {
 		if (this.props.isClicking) {
 			var isClicked = this.mouseClicked();
 			this.clickBlock(isClicked);
 		}
 	}
+
+	/* click block */
 	clickBlock (isClicked) {
 		this.setState({
 	        isClicked: isClicked
 	    });
 	}
-
 
 	render () {
 		const isClicked = this.state.isClicked ? "DayBlock isClicked" : "DayBlock";
