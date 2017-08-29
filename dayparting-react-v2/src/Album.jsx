@@ -7,10 +7,6 @@ const Album = ({ selectableRef, selected, selecting, title, year }) => (
     ref={selectableRef}
     className={`item ${selecting && 'selecting'} ${selected && 'selected'}`}
   >
-    <div className="tick">+</div>
-    <h2>{title}</h2>
-    <small>{year}</small>
-    <Label selected={selected} selecting={selecting} />
   </div>
 )
 

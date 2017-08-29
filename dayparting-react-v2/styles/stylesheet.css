@@ -257,7 +257,7 @@ a:hover {
   padding: 0 10px;
   border: 1px solid darkcyan;
   overflow: hidden;
-  height: 80vh;
+  height: auto;
   overflow: scroll;
   position: relative;
 }
@@ -270,8 +270,9 @@ a:hover {
 }
 .albums {
   display: flex;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   flex-wrap: wrap;
+  padding-bottom: 30px;
 }
 .album-label {
   display: block;
@@ -279,20 +280,17 @@ a:hover {
   font-size: smaller;
 }
 .item {
+  background-color:#E8ECF0;
   position: relative;
-  width: 145px;
-  min-height: 125px;
-  margin: 2px;
+  width: 24px;
+  height: 35px;
+  /*margin: 2px;*/
   float: left;
   text-align: center;
   border: 1px solid #ccc;
   padding: 10px;
   overflow: hidden;
 }
-/*.item:nth-child(10),
-.item:nth-child(27) {
-  background: silver;
-}*/
 .item .tick {
   position: absolute;
   top: 4px;
@@ -310,11 +308,12 @@ a:hover {
   font-weight: 600;
 }
 .item.selected {
-  background: rebeccapurple;
+  background: linear-gradient(#6279ae, #5870a8);
+  background-color: #cbd3db;
   color: white;
 }
 .item.selecting {
-  border: 1px solid rebeccapurple;
+  border: 1px solid #6279ae;
 }
 .not-selectable {
   display: inline-block;

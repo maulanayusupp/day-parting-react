@@ -19,18 +19,6 @@ class DayParting extends Component {
 	  	this.handleSelectionFinish = this.handleSelectionFinish.bind(this);
 	}
 
-	/*handleSelecting = selectingItems => {
-		this.setState({ selectingItems })
-	}*/
-
-	/*handleSelectionFinish = selectedItems => {
-		this.setState({
-			selectedItems,
-			selectingItems: [],
-		})
-		console.log(`Finished selection ${selectedItems.length}`)
-	}*/
-
 	handleSelecting (selectingItems) {
 		this.setState({
 			selectingItems: selectingItems
@@ -38,6 +26,7 @@ class DayParting extends Component {
 	}
 
 	handleSelectionFinish (selectedItems) {
+		console.log(selectedItems)
 		this.setState({
 			selectedItems: selectedItems,
 			selectingItems: [],
@@ -78,6 +67,6 @@ class DayParting extends Component {
 
 
 ReactDOM.render(
-  <DayParting items={data} />,
+  <DayParting/>,
   document.getElementById('dayparting')
 );
