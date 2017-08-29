@@ -10445,7 +10445,17 @@ var DayParting = function (_Component) {
 	}, {
 		key: 'handleSelectionFinish',
 		value: function handleSelectionFinish(selectedItems) {
-			console.log(selectedItems);
+			var dates = [];
+			for (var i = 0; i < selectedItems.length; i++) {
+				var selected = selectedItems[i];
+				var date = {
+					day: selected.props.day,
+					name: selected.props.name,
+					type: selected.props.type
+				};
+				dates.push(date);
+			}
+			console.log(dates);
 			this.setState({
 				selectedItems: selectedItems,
 				selectingItems: []
@@ -10499,7 +10509,7 @@ var DayParting = function (_Component) {
 						onSelectionClear: this.handleSelectionClear,
 						onSelectionFinish: this.handleSelectionFinish
 					},
-					_react2.default.createElement(_List2.default, { items: _sampleData2.default })
+					_react2.default.createElement(_List2.default, { days: _sampleData2.default })
 				)
 			);
 		}
@@ -23207,7 +23217,38 @@ module.exports = function (css) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = [{ title: 'My Aim is True', year: '1977' }, { title: "This Year's Model", year: '1978' }, { title: 'Armed Forces', year: '1979' }, { title: 'Get Happy', year: '1980' }, { title: 'Trust', year: '1981' }, { title: 'Almost Blue', year: '1981' }, { title: 'Imperial Bedroom', year: '1982' }, { title: 'Punch the Clock', year: '1983' }, { title: 'Goodbye Cruel World', year: '1984' }, { title: 'King of America', year: '1986' }, { title: 'Blood and Chocolate', year: '1986' }, { title: 'Spike', year: '1989' }, { title: 'Mighty Like a Rose', year: '1991' }, { title: 'The Juliette Letters', year: '1993' }, { title: 'Brutal Youth', year: '1994' }, { title: 'Kojak Variety', year: '1995' }, { title: 'All This Useless Beauty', year: '1996' }, { title: 'Painted from Memory', year: '1998' }, { title: 'When I Was Cruel', year: '2002' }, { title: 'North', year: '2003' }, { title: 'The Delivery Man', year: '2004' }, { title: 'The River in Reverse', year: '2006' }, { title: 'Momofuku', year: '2008' }, { title: 'Secret, Profane & Sugarcane', year: '2009' }, { title: 'National Ransom', year: '2009' }, { title: 'My Aim is True', year: '1977' }, { title: "This Year's Model", year: '1978' }, { title: 'Armed Forces', year: '1979' }, { title: 'Get Happy', year: '1980' }, { title: 'Trust', year: '1981' }, { title: 'Almost Blue', year: '1981' }, { title: 'Imperial Bedroom', year: '1982' }, { title: 'Punch the Clock', year: '1983' }, { title: 'Goodbye Cruel World', year: '1984' }, { title: 'King of America', year: '1986' }, { title: 'Blood and Chocolate', year: '1986' }, { title: 'Spike', year: '1989' }, { title: 'Mighty Like a Rose', year: '1991' }, { title: 'The Juliette Letters', year: '1993' }, { title: 'Brutal Youth', year: '1994' }, { title: 'Kojak Variety', year: '1995' }, { title: 'All This Useless Beauty', year: '1996' }, { title: 'Painted from Memory', year: '1998' }, { title: 'When I Was Cruel', year: '2002' }, { title: 'North', year: '2003' }, { title: 'The Delivery Man', year: '2004' }, { title: 'The River in Reverse', year: '2006' }, { title: 'Momofuku', year: '2008' }, { title: 'Secret, Profane & Sugarcane', year: '2009' }, { title: 'National Ransom', year: '2009' }, { title: "This Year's Model", year: '1978' }, { title: 'Armed Forces', year: '1979' }, { title: 'Get Happy', year: '1980' }, { title: 'Trust', year: '1981' }, { title: 'Almost Blue', year: '1981' }, { title: 'Imperial Bedroom', year: '1982' }, { title: 'Punch the Clock', year: '1983' }, { title: 'Goodbye Cruel World', year: '1984' }, { title: 'King of America', year: '1986' }, { title: 'Blood and Chocolate', year: '1986' }, { title: 'Spike', year: '1989' }, { title: 'Mighty Like a Rose', year: '1991' }, { title: 'The Juliette Letters', year: '1993' }, { title: 'Brutal Youth', year: '1994' }, { title: 'Kojak Variety', year: '1995' }, { title: 'All This Useless Beauty', year: '1996' }, { title: 'Painted from Memory', year: '1998' }, { title: 'When I Was Cruel', year: '2002' }, { title: 'North', year: '2003' }, { title: 'The Delivery Man', year: '2004' }, { title: 'The River in Reverse', year: '2006' }, { title: 'Momofuku', year: '2008' }, { title: 'Secret, Profane & Sugarcane', year: '2009' }, { title: 'National Ransom', year: '2009' }, { title: "This Year's Model", year: '1978' }, { title: 'Armed Forces', year: '1979' }, { title: 'Get Happy', year: '1980' }, { title: 'Trust', year: '1981' }, { title: 'Almost Blue', year: '1981' }, { title: 'Imperial Bedroom', year: '1982' }, { title: 'Punch the Clock', year: '1983' }, { title: 'Goodbye Cruel World', year: '1984' }, { title: 'King of America', year: '1986' }, { title: 'Blood and Chocolate', year: '1986' }, { title: 'Spike', year: '1989' }, { title: 'Mighty Like a Rose', year: '1991' }, { title: 'The Juliette Letters', year: '1993' }, { title: 'Brutal Youth', year: '1994' }, { title: 'Kojak Variety', year: '1995' }, { title: 'All This Useless Beauty', year: '1996' }, { title: 'Painted from Memory', year: '1998' }, { title: 'When I Was Cruel', year: '2002' }, { title: 'North', year: '2003' }, { title: 'The Delivery Man', year: '2004' }, { title: 'The River in Reverse', year: '2006' }, { title: 'Momofuku', year: '2008' }, { title: 'Secret, Profane & Sugarcane', year: '2009' }, { title: 'National Ransom', year: '2009' }, { title: "This Year's Model", year: '1978' }, { title: 'Armed Forces', year: '1979' }, { title: 'Get Happy', year: '1980' }, { title: 'Trust', year: '1981' }, { title: 'Almost Blue', year: '1981' }, { title: 'Imperial Bedroom', year: '1982' }, { title: 'Punch the Clock', year: '1983' }, { title: 'Goodbye Cruel World', year: '1984' }, { title: 'King of America', year: '1986' }, { title: 'Blood and Chocolate', year: '1986' }, { title: 'Spike', year: '1989' }, { title: 'Mighty Like a Rose', year: '1991' }, { title: 'The Juliette Letters', year: '1993' }, { title: 'Brutal Youth', year: '1994' }, { title: 'Kojak Variety', year: '1995' }, { title: 'All This Useless Beauty', year: '1996' }, { title: 'Painted from Memory', year: '1998' }, { title: 'When I Was Cruel', year: '2002' }, { title: 'North', year: '2003' }, { title: 'The Delivery Man', year: '2004' }, { title: 'The River in Reverse', year: '2006' }, { title: 'Momofuku', year: '2008' }, { title: 'Secret, Profane & Sugarcane', year: '2009' }, { title: 'National Ransom', year: '2009' }, { title: "This Year's Model", year: '1978' }, { title: 'Armed Forces', year: '1979' }, { title: 'Get Happy', year: '1980' }, { title: 'Trust', year: '1981' }, { title: 'Almost Blue', year: '1981' }, { title: 'Imperial Bedroom', year: '1982' }, { title: 'Punch the Clock', year: '1983' }, { title: 'Goodbye Cruel World', year: '1984' }, { title: 'King of America', year: '1986' }, { title: 'Blood and Chocolate', year: '1986' }, { title: 'Spike', year: '1989' }, { title: 'Mighty Like a Rose', year: '1991' }, { title: 'The Juliette Letters', year: '1993' }, { title: 'Brutal Youth', year: '1994' }, { title: 'Kojak Variety', year: '1995' }, { title: 'All This Useless Beauty', year: '1996' }, { title: 'Painted from Memory', year: '1998' }, { title: 'When I Was Cruel', year: '2002' }, { title: 'North', year: '2003' }, { title: 'The Delivery Man', year: '2004' }, { title: 'The River in Reverse', year: '2006' }, { title: 'Momofuku', year: '2008' }, { title: 'Secret, Profane & Sugarcane', year: '2009' }, { title: 'National Ransom', year: '2009' }, { title: "This Year's Model", year: '1978' }, { title: 'Armed Forces', year: '1979' }, { title: 'Get Happy', year: '1980' }, { title: 'Trust', year: '1981' }, { title: 'Almost Blue', year: '1981' }, { title: 'Imperial Bedroom', year: '1982' }, { title: 'Punch the Clock', year: '1983' }, { title: 'Goodbye Cruel World', year: '1984' }, { title: 'King of America', year: '1986' }, { title: 'Blood and Chocolate', year: '1986' }, { title: 'Spike', year: '1989' }, { title: 'Mighty Like a Rose', year: '1991' }, { title: 'The Juliette Letters', year: '1993' }, { title: 'Brutal Youth', year: '1994' }, { title: 'Kojak Variety', year: '1995' }, { title: 'All This Useless Beauty', year: '1996' }, { title: 'Painted from Memory', year: '1998' }, { title: 'When I Was Cruel', year: '2002' }, { title: 'North', year: '2003' }, { title: 'The Delivery Man', year: '2004' }, { title: 'The River in Reverse', year: '2006' }, { title: 'Momofuku', year: '2008' }, { title: 'Secret, Profane & Sugarcane', year: '2009' }, { title: 'National Ransom', year: '2009' }, { title: 'North', year: '2003' }, { title: 'The Delivery Man', year: '2004' }, { title: 'The River in Reverse', year: '2006' }, { title: 'Momofuku', year: '2008' }, { title: 'Secret, Profane & Sugarcane', year: '2009' }, { title: 'National Ransom', year: '2009' }];
+var datesWithDay = [{ id: 1, day: 'Monday', name: '12', type: 'AM' }, { id: 2, day: 'Monday', name: '01', type: 'AM' }, { id: 3, day: 'Monday', name: '02', type: 'AM' }, { id: 4, day: 'Monday', name: '03', type: 'AM' }, { id: 5, day: 'Monday', name: '04', type: 'AM' }, { id: 6, day: 'Monday', name: '05', type: 'AM' }, { id: 7, day: 'Monday', name: '06', type: 'AM' }, { id: 8, day: 'Monday', name: '07', type: 'AM' }, { id: 9, day: 'Monday', name: '08', type: 'AM' }, { id: 10, day: 'Monday', name: '09', type: 'AM' }, { id: 11, day: 'Monday', name: '10', type: 'AM' }, { id: 12, day: 'Monday', name: '11', type: 'AM' }, { id: 13, day: 'Monday', name: '12', type: 'PM' }, { id: 14, day: 'Monday', name: '01', type: 'PM' }, { id: 15, day: 'Monday', name: '02', type: 'PM' }, { id: 16, day: 'Monday', name: '03', type: 'PM' }, { id: 17, day: 'Monday', name: '04', type: 'PM' }, { id: 18, day: 'Monday', name: '05', type: 'PM' }, { id: 19, day: 'Monday', name: '06', type: 'PM' }, { id: 20, day: 'Monday', name: '07', type: 'PM' }, { id: 21, day: 'Monday', name: '08', type: 'PM' }, { id: 22, day: 'Monday', name: '09', type: 'PM' }, { id: 23, day: 'Monday', name: '10', type: 'PM' }, { id: 24, day: 'Monday', name: '11', type: 'PM' }, { id: 1, day: 'Tuesday', name: '12', type: 'AM' }, { id: 2, day: 'Tuesday', name: '01', type: 'AM' }, { id: 3, day: 'Tuesday', name: '02', type: 'AM' }, { id: 4, day: 'Tuesday', name: '03', type: 'AM' }, { id: 5, day: 'Tuesday', name: '04', type: 'AM' }, { id: 6, day: 'Tuesday', name: '05', type: 'AM' }, { id: 7, day: 'Tuesday', name: '06', type: 'AM' }, { id: 8, day: 'Tuesday', name: '07', type: 'AM' }, { id: 9, day: 'Tuesday', name: '08', type: 'AM' }, { id: 10, day: 'Tuesday', name: '09', type: 'AM' }, { id: 11, day: 'Tuesday', name: '10', type: 'AM' }, { id: 12, day: 'Tuesday', name: '11', type: 'AM' }, { id: 13, day: 'Tuesday', name: '12', type: 'PM' }, { id: 14, day: 'Tuesday', name: '01', type: 'PM' }, { id: 15, day: 'Tuesday', name: '02', type: 'PM' }, { id: 16, day: 'Tuesday', name: '03', type: 'PM' }, { id: 17, day: 'Tuesday', name: '04', type: 'PM' }, { id: 18, day: 'Tuesday', name: '05', type: 'PM' }, { id: 19, day: 'Tuesday', name: '06', type: 'PM' }, { id: 20, day: 'Tuesday', name: '07', type: 'PM' }, { id: 21, day: 'Tuesday', name: '08', type: 'PM' }, { id: 22, day: 'Tuesday', name: '09', type: 'PM' }, { id: 23, day: 'Tuesday', name: '10', type: 'PM' }, { id: 24, day: 'Tuesday', name: '11', type: 'PM' }, { id: 1, day: 'Wednesday', name: '12', type: 'AM' }, { id: 2, day: 'Wednesday', name: '01', type: 'AM' }, { id: 3, day: 'Wednesday', name: '02', type: 'AM' }, { id: 4, day: 'Wednesday', name: '03', type: 'AM' }, { id: 5, day: 'Wednesday', name: '04', type: 'AM' }, { id: 6, day: 'Wednesday', name: '05', type: 'AM' }, { id: 7, day: 'Wednesday', name: '06', type: 'AM' }, { id: 8, day: 'Wednesday', name: '07', type: 'AM' }, { id: 9, day: 'Wednesday', name: '08', type: 'AM' }, { id: 10, day: 'Wednesday', name: '09', type: 'AM' }, { id: 11, day: 'Wednesday', name: '10', type: 'AM' }, { id: 12, day: 'Wednesday', name: '11', type: 'AM' }, { id: 13, day: 'Wednesday', name: '12', type: 'PM' }, { id: 14, day: 'Wednesday', name: '01', type: 'PM' }, { id: 15, day: 'Wednesday', name: '02', type: 'PM' }, { id: 16, day: 'Wednesday', name: '03', type: 'PM' }, { id: 17, day: 'Wednesday', name: '04', type: 'PM' }, { id: 18, day: 'Wednesday', name: '05', type: 'PM' }, { id: 19, day: 'Wednesday', name: '06', type: 'PM' }, { id: 20, day: 'Wednesday', name: '07', type: 'PM' }, { id: 21, day: 'Wednesday', name: '08', type: 'PM' }, { id: 22, day: 'Wednesday', name: '09', type: 'PM' }, { id: 23, day: 'Wednesday', name: '10', type: 'PM' }, { id: 24, day: 'Wednesday', name: '11', type: 'PM' }, { id: 1, day: 'Thursday', name: '12', type: 'AM' }, { id: 2, day: 'Thursday', name: '01', type: 'AM' }, { id: 3, day: 'Thursday', name: '02', type: 'AM' }, { id: 4, day: 'Thursday', name: '03', type: 'AM' }, { id: 5, day: 'Thursday', name: '04', type: 'AM' }, { id: 6, day: 'Thursday', name: '05', type: 'AM' }, { id: 7, day: 'Thursday', name: '06', type: 'AM' }, { id: 8, day: 'Thursday', name: '07', type: 'AM' }, { id: 9, day: 'Thursday', name: '08', type: 'AM' }, { id: 10, day: 'Thursday', name: '09', type: 'AM' }, { id: 11, day: 'Thursday', name: '10', type: 'AM' }, { id: 12, day: 'Thursday', name: '11', type: 'AM' }, { id: 13, day: 'Thursday', name: '12', type: 'PM' }, { id: 14, day: 'Thursday', name: '01', type: 'PM' }, { id: 15, day: 'Thursday', name: '02', type: 'PM' }, { id: 16, day: 'Thursday', name: '03', type: 'PM' }, { id: 17, day: 'Thursday', name: '04', type: 'PM' }, { id: 18, day: 'Thursday', name: '05', type: 'PM' }, { id: 19, day: 'Thursday', name: '06', type: 'PM' }, { id: 20, day: 'Thursday', name: '07', type: 'PM' }, { id: 21, day: 'Thursday', name: '08', type: 'PM' }, { id: 22, day: 'Thursday', name: '09', type: 'PM' }, { id: 23, day: 'Thursday', name: '10', type: 'PM' }, { id: 24, day: 'Thursday', name: '11', type: 'PM' }, { id: 1, day: 'Friday', name: '12', type: 'AM' }, { id: 2, day: 'Friday', name: '01', type: 'AM' }, { id: 3, day: 'Friday', name: '02', type: 'AM' }, { id: 4, day: 'Friday', name: '03', type: 'AM' }, { id: 5, day: 'Friday', name: '04', type: 'AM' }, { id: 6, day: 'Friday', name: '05', type: 'AM' }, { id: 7, day: 'Friday', name: '06', type: 'AM' }, { id: 8, day: 'Friday', name: '07', type: 'AM' }, { id: 9, day: 'Friday', name: '08', type: 'AM' }, { id: 10, day: 'Friday', name: '09', type: 'AM' }, { id: 11, day: 'Friday', name: '10', type: 'AM' }, { id: 12, day: 'Friday', name: '11', type: 'AM' }, { id: 13, day: 'Friday', name: '12', type: 'PM' }, { id: 14, day: 'Friday', name: '01', type: 'PM' }, { id: 15, day: 'Friday', name: '02', type: 'PM' }, { id: 16, day: 'Friday', name: '03', type: 'PM' }, { id: 17, day: 'Friday', name: '04', type: 'PM' }, { id: 18, day: 'Friday', name: '05', type: 'PM' }, { id: 19, day: 'Friday', name: '06', type: 'PM' }, { id: 20, day: 'Friday', name: '07', type: 'PM' }, { id: 21, day: 'Friday', name: '08', type: 'PM' }, { id: 22, day: 'Friday', name: '09', type: 'PM' }, { id: 23, day: 'Friday', name: '10', type: 'PM' }, { id: 24, day: 'Friday', name: '11', type: 'PM' }, { id: 1, day: 'Saturday', name: '12', type: 'AM' }, { id: 2, day: 'Saturday', name: '01', type: 'AM' }, { id: 3, day: 'Saturday', name: '02', type: 'AM' }, { id: 4, day: 'Saturday', name: '03', type: 'AM' }, { id: 5, day: 'Saturday', name: '04', type: 'AM' }, { id: 6, day: 'Saturday', name: '05', type: 'AM' }, { id: 7, day: 'Saturday', name: '06', type: 'AM' }, { id: 8, day: 'Saturday', name: '07', type: 'AM' }, { id: 9, day: 'Saturday', name: '08', type: 'AM' }, { id: 10, day: 'Saturday', name: '09', type: 'AM' }, { id: 11, day: 'Saturday', name: '10', type: 'AM' }, { id: 12, day: 'Saturday', name: '11', type: 'AM' }, { id: 13, day: 'Saturday', name: '12', type: 'PM' }, { id: 14, day: 'Saturday', name: '01', type: 'PM' }, { id: 15, day: 'Saturday', name: '02', type: 'PM' }, { id: 16, day: 'Saturday', name: '03', type: 'PM' }, { id: 17, day: 'Saturday', name: '04', type: 'PM' }, { id: 18, day: 'Saturday', name: '05', type: 'PM' }, { id: 19, day: 'Saturday', name: '06', type: 'PM' }, { id: 20, day: 'Saturday', name: '07', type: 'PM' }, { id: 21, day: 'Saturday', name: '08', type: 'PM' }, { id: 22, day: 'Saturday', name: '09', type: 'PM' }, { id: 23, day: 'Saturday', name: '10', type: 'PM' }, { id: 24, day: 'Saturday', name: '11', type: 'PM' }, { id: 1, day: 'Sunday', name: '12', type: 'AM' }, { id: 2, day: 'Sunday', name: '01', type: 'AM' }, { id: 3, day: 'Sunday', name: '02', type: 'AM' }, { id: 4, day: 'Sunday', name: '03', type: 'AM' }, { id: 5, day: 'Sunday', name: '04', type: 'AM' }, { id: 6, day: 'Sunday', name: '05', type: 'AM' }, { id: 7, day: 'Sunday', name: '06', type: 'AM' }, { id: 8, day: 'Sunday', name: '07', type: 'AM' }, { id: 9, day: 'Sunday', name: '08', type: 'AM' }, { id: 10, day: 'Sunday', name: '09', type: 'AM' }, { id: 11, day: 'Sunday', name: '10', type: 'AM' }, { id: 12, day: 'Sunday', name: '11', type: 'AM' }, { id: 13, day: 'Sunday', name: '12', type: 'PM' }, { id: 14, day: 'Sunday', name: '01', type: 'PM' }, { id: 15, day: 'Sunday', name: '02', type: 'PM' }, { id: 16, day: 'Sunday', name: '03', type: 'PM' }, { id: 17, day: 'Sunday', name: '04', type: 'PM' }, { id: 18, day: 'Sunday', name: '05', type: 'PM' }, { id: 19, day: 'Sunday', name: '06', type: 'PM' }, { id: 20, day: 'Sunday', name: '07', type: 'PM' }, { id: 21, day: 'Sunday', name: '08', type: 'PM' }, { id: 22, day: 'Sunday', name: '09', type: 'PM' }, { id: 23, day: 'Sunday', name: '10', type: 'PM' }, { id: 24, day: 'Sunday', name: '11', type: 'PM' }];
+var dates = [{
+  id: 'monday',
+  day: 'Monday',
+  dates: [{ id: 1, name: '12', type: 'AM' }, { id: 2, name: '01', type: 'AM' }, { id: 3, name: '02', type: 'AM' }, { id: 4, name: '03', type: 'AM' }, { id: 5, name: '04', type: 'AM' }, { id: 6, name: '05', type: 'AM' }, { id: 7, name: '06', type: 'AM' }, { id: 8, name: '07', type: 'AM' }, { id: 9, name: '08', type: 'AM' }, { id: 10, name: '09', type: 'AM' }, { id: 11, name: '10', type: 'AM' }, { id: 12, name: '11', type: 'AM' }, { id: 13, name: '12', type: 'PM' }, { id: 14, name: '01', type: 'PM' }, { id: 15, name: '02', type: 'PM' }, { id: 16, name: '03', type: 'PM' }, { id: 17, name: '04', type: 'PM' }, { id: 18, name: '05', type: 'PM' }, { id: 19, name: '06', type: 'PM' }, { id: 20, name: '07', type: 'PM' }, { id: 21, name: '08', type: 'PM' }, { id: 22, name: '09', type: 'PM' }, { id: 23, name: '10', type: 'PM' }, { id: 24, name: '11', type: 'PM' }]
+}, {
+  id: 'tuesday',
+  day: 'Tuesday',
+  dates: [{ id: 1, name: '12', type: 'AM' }, { id: 2, name: '01', type: 'AM' }, { id: 3, name: '02', type: 'AM' }, { id: 4, name: '03', type: 'AM' }, { id: 5, name: '04', type: 'AM' }, { id: 6, name: '05', type: 'AM' }, { id: 7, name: '06', type: 'AM' }, { id: 8, name: '07', type: 'AM' }, { id: 9, name: '08', type: 'AM' }, { id: 10, name: '09', type: 'AM' }, { id: 11, name: '10', type: 'AM' }, { id: 12, name: '11', type: 'AM' }, { id: 13, name: '12', type: 'PM' }, { id: 14, name: '01', type: 'PM' }, { id: 15, name: '02', type: 'PM' }, { id: 16, name: '03', type: 'PM' }, { id: 17, name: '04', type: 'PM' }, { id: 18, name: '05', type: 'PM' }, { id: 19, name: '06', type: 'PM' }, { id: 20, name: '07', type: 'PM' }, { id: 21, name: '08', type: 'PM' }, { id: 22, name: '09', type: 'PM' }, { id: 23, name: '10', type: 'PM' }, { id: 24, name: '11', type: 'PM' }]
+}, {
+  id: 'wednesday',
+  day: 'Wednesday',
+  dates: [{ id: 1, name: '12', type: 'AM' }, { id: 2, name: '01', type: 'AM' }, { id: 3, name: '02', type: 'AM' }, { id: 4, name: '03', type: 'AM' }, { id: 5, name: '04', type: 'AM' }, { id: 6, name: '05', type: 'AM' }, { id: 7, name: '06', type: 'AM' }, { id: 8, name: '07', type: 'AM' }, { id: 9, name: '08', type: 'AM' }, { id: 10, name: '09', type: 'AM' }, { id: 11, name: '10', type: 'AM' }, { id: 12, name: '11', type: 'AM' }, { id: 13, name: '12', type: 'PM' }, { id: 14, name: '01', type: 'PM' }, { id: 15, name: '02', type: 'PM' }, { id: 16, name: '03', type: 'PM' }, { id: 17, name: '04', type: 'PM' }, { id: 18, name: '05', type: 'PM' }, { id: 19, name: '06', type: 'PM' }, { id: 20, name: '07', type: 'PM' }, { id: 21, name: '08', type: 'PM' }, { id: 22, name: '09', type: 'PM' }, { id: 23, name: '10', type: 'PM' }, { id: 24, name: '11', type: 'PM' }]
+}, {
+  id: 'thursday',
+  day: 'Thursday',
+  dates: [{ id: 1, name: '12', type: 'AM' }, { id: 2, name: '01', type: 'AM' }, { id: 3, name: '02', type: 'AM' }, { id: 4, name: '03', type: 'AM' }, { id: 5, name: '04', type: 'AM' }, { id: 6, name: '05', type: 'AM' }, { id: 7, name: '06', type: 'AM' }, { id: 8, name: '07', type: 'AM' }, { id: 9, name: '08', type: 'AM' }, { id: 10, name: '09', type: 'AM' }, { id: 11, name: '10', type: 'AM' }, { id: 12, name: '11', type: 'AM' }, { id: 13, name: '12', type: 'PM' }, { id: 14, name: '01', type: 'PM' }, { id: 15, name: '02', type: 'PM' }, { id: 16, name: '03', type: 'PM' }, { id: 17, name: '04', type: 'PM' }, { id: 18, name: '05', type: 'PM' }, { id: 19, name: '06', type: 'PM' }, { id: 20, name: '07', type: 'PM' }, { id: 21, name: '08', type: 'PM' }, { id: 22, name: '09', type: 'PM' }, { id: 23, name: '10', type: 'PM' }, { id: 24, name: '11', type: 'PM' }]
+}, {
+  id: 'friday',
+  day: 'Friday',
+  dates: [{ id: 1, name: '12', type: 'AM' }, { id: 2, name: '01', type: 'AM' }, { id: 3, name: '02', type: 'AM' }, { id: 4, name: '03', type: 'AM' }, { id: 5, name: '04', type: 'AM' }, { id: 6, name: '05', type: 'AM' }, { id: 7, name: '06', type: 'AM' }, { id: 8, name: '07', type: 'AM' }, { id: 9, name: '08', type: 'AM' }, { id: 10, name: '09', type: 'AM' }, { id: 11, name: '10', type: 'AM' }, { id: 12, name: '11', type: 'AM' }, { id: 13, name: '12', type: 'PM' }, { id: 14, name: '01', type: 'PM' }, { id: 15, name: '02', type: 'PM' }, { id: 16, name: '03', type: 'PM' }, { id: 17, name: '04', type: 'PM' }, { id: 18, name: '05', type: 'PM' }, { id: 19, name: '06', type: 'PM' }, { id: 20, name: '07', type: 'PM' }, { id: 21, name: '08', type: 'PM' }, { id: 22, name: '09', type: 'PM' }, { id: 23, name: '10', type: 'PM' }, { id: 24, name: '11', type: 'PM' }]
+}, {
+  id: 'saturday',
+  day: 'Saturday',
+  dates: [{ id: 1, name: '12', type: 'AM' }, { id: 2, name: '01', type: 'AM' }, { id: 3, name: '02', type: 'AM' }, { id: 4, name: '03', type: 'AM' }, { id: 5, name: '04', type: 'AM' }, { id: 6, name: '05', type: 'AM' }, { id: 7, name: '06', type: 'AM' }, { id: 8, name: '07', type: 'AM' }, { id: 9, name: '08', type: 'AM' }, { id: 10, name: '09', type: 'AM' }, { id: 11, name: '10', type: 'AM' }, { id: 12, name: '11', type: 'AM' }, { id: 13, name: '12', type: 'PM' }, { id: 14, name: '01', type: 'PM' }, { id: 15, name: '02', type: 'PM' }, { id: 16, name: '03', type: 'PM' }, { id: 17, name: '04', type: 'PM' }, { id: 18, name: '05', type: 'PM' }, { id: 19, name: '06', type: 'PM' }, { id: 20, name: '07', type: 'PM' }, { id: 21, name: '08', type: 'PM' }, { id: 22, name: '09', type: 'PM' }, { id: 23, name: '10', type: 'PM' }, { id: 24, name: '11', type: 'PM' }]
+}, {
+  id: 'sunday',
+  day: 'Sunday',
+  dates: [{ id: 1, name: '12', type: 'AM' }, { id: 2, name: '01', type: 'AM' }, { id: 3, name: '02', type: 'AM' }, { id: 4, name: '03', type: 'AM' }, { id: 5, name: '04', type: 'AM' }, { id: 6, name: '05', type: 'AM' }, { id: 7, name: '06', type: 'AM' }, { id: 8, name: '07', type: 'AM' }, { id: 9, name: '08', type: 'AM' }, { id: 10, name: '09', type: 'AM' }, { id: 11, name: '10', type: 'AM' }, { id: 12, name: '11', type: 'AM' }, { id: 13, name: '12', type: 'PM' }, { id: 14, name: '01', type: 'PM' }, { id: 15, name: '02', type: 'PM' }, { id: 16, name: '03', type: 'PM' }, { id: 17, name: '04', type: 'PM' }, { id: 18, name: '05', type: 'PM' }, { id: 19, name: '06', type: 'PM' }, { id: 20, name: '07', type: 'PM' }, { id: 21, name: '08', type: 'PM' }, { id: 22, name: '09', type: 'PM' }, { id: 23, name: '10', type: 'PM' }, { id: 24, name: '11', type: 'PM' }]
+}];
+
+exports.default = dates;
 
 /***/ }),
 /* 193 */
@@ -24502,9 +24543,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactSelectableFast = __webpack_require__(85);
 
-var _Album = __webpack_require__(202);
+var _Item = __webpack_require__(204);
 
-var _Album2 = _interopRequireDefault(_Album);
+var _Item2 = _interopRequireDefault(_Item);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24531,6 +24572,20 @@ var List = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var days = this.props.days;
+      var myDates = [];
+      for (var i = 0; i < days.length; i++) {
+        var day = days[i];
+        for (var j = 0; j < day.dates.length; j++) {
+          var date = day.dates[j];
+          myDates.push(_react2.default.createElement(_Item2.default, {
+            key: '' + date.id + i,
+            day: day.day,
+            name: date.name,
+            type: date.type
+          }));
+        }
+      }
       return _react2.default.createElement(
         'div',
         null,
@@ -24564,12 +24619,7 @@ var List = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'albums' },
-          this.props.items.map(function (item, i) {
-            return _react2.default.createElement(_Album2.default, {
-              key: '' + item.title + i,
-              item: item
-            });
-          })
+          myDates
         )
       );
     }
@@ -24581,7 +24631,9 @@ var List = function (_Component) {
 exports.default = List;
 
 /***/ }),
-/* 202 */
+/* 202 */,
+/* 203 */,
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24597,13 +24649,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactSelectableFast = __webpack_require__(85);
 
-var _Label = __webpack_require__(203);
-
-var _Label2 = _interopRequireDefault(_Label);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Album = function Album(_ref) {
+var Item = function Item(_ref) {
   var selectableRef = _ref.selectableRef,
       selected = _ref.selected,
       selecting = _ref.selecting,
@@ -24615,48 +24663,7 @@ var Album = function Album(_ref) {
   });
 };
 
-exports.default = (0, _reactSelectableFast.createSelectable)(Album);
-
-/***/ }),
-/* 203 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(14);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Label = function Label(_ref) {
-  var selecting = _ref.selecting,
-      selected = _ref.selected;
-  return _react2.default.createElement(
-    "div",
-    { className: "album-label" },
-    "Selecting: ",
-    _react2.default.createElement(
-      "span",
-      null,
-      "" + selecting
-    ),
-    _react2.default.createElement("br", null),
-    "Selected: ",
-    _react2.default.createElement(
-      "span",
-      null,
-      "" + selected
-    )
-  );
-};
-
-exports.default = Label;
+exports.default = (0, _reactSelectableFast.createSelectable)(Item);
 
 /***/ })
 /******/ ]);

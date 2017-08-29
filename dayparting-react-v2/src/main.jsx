@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import styles from "./DayBlock.css"
-import data from './sample-data'
+import daysData from './sample-data'
 
 import { SelectableGroup } from 'react-selectable-fast'
 import List from './List.jsx'
@@ -26,7 +26,17 @@ class DayParting extends Component {
 	}
 
 	handleSelectionFinish (selectedItems) {
-		console.log(selectedItems)
+		var dates = [];
+		for (var i = 0; i < selectedItems.length; i++) {
+			var selected = selectedItems[i];
+			var date = {
+				day: selected.props.day,
+				name: selected.props.name,
+				type: selected.props.type,
+			}
+			dates.push(date)
+		}
+		console.log(dates)
 		this.setState({
 			selectedItems: selectedItems,
 			selectingItems: [],
@@ -58,7 +68,7 @@ class DayParting extends Component {
 			    onSelectionClear={this.handleSelectionClear}
 			    onSelectionFinish={this.handleSelectionFinish}
 			  >
-			    <List items={data} />
+			    <List days={daysData} />
 			  </SelectableGroup>
 			</div>
 		)

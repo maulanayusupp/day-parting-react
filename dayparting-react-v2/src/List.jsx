@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { SelectAll, DeselectAll } from 'react-selectable-fast'
-import SelectableAlbum from './Album.jsx'
+import Item from './Item.jsx'
 
 class List extends Component {
   shouldComponentUpdate(nextProps) {
@@ -8,6 +8,22 @@ class List extends Component {
   }
 
   render() {
+    var days = this.props.days;
+    var myDates = [];
+    for (var i = 0; i < days.length; i++) {
+      var day = days[i];
+      for (var j = 0; j < day.dates.length; j++) {
+        var date = day.dates[j];
+        myDates.push(
+          <Item
+            key ={`${date.id}${i}`}
+            day =  {day.day}
+            name = {date.name}
+            type = {date.type}
+          />
+        );
+      }
+    }
     return (
       <div>
         <p className="not-selectable">Press ESC to clear selection</p>
@@ -20,12 +36,7 @@ class List extends Component {
           </DeselectAll>
         </div>
         <div className="albums">
-          {this.props.items.map((item, i) => (
-            <SelectableAlbum
-              key={`${item.title}${i}`}
-              item={item}
-            />
-          ))}
+          {myDates}
         </div>
       </div>
     )

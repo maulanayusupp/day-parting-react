@@ -1,8 +1,7 @@
 import React from 'react'
 import { createSelectable } from 'react-selectable-fast'
-import Label from './Label.jsx'
 
-const Album = ({ selectableRef, selected, selecting, title, year }) => (
+const Item = ({ selectableRef, selected, selecting, title, year }) => (
   <div
     ref={selectableRef}
     className={`item ${selecting && 'selecting'} ${selected && 'selected'}`}
@@ -10,4 +9,4 @@ const Album = ({ selectableRef, selected, selecting, title, year }) => (
   </div>
 )
 
-export default createSelectable(Album)
+export default createSelectable(Item)
