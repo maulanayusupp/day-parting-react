@@ -177,7 +177,7 @@ var datesWithDay = [
 var dates = [
   {
     id: 'monday',
-    day: 'Monday',
+    name: 'Monday',
     dates: [
       {id:1, name: '12', type: 'AM'},
       {id:2, name: '01', type: 'AM'},
@@ -207,7 +207,7 @@ var dates = [
   },
   {
     id: 'tuesday',
-    day: 'Tuesday',
+    name: 'Tuesday',
     dates: [
       {id:1, name: '12', type: 'AM'},
       {id:2, name: '01', type: 'AM'},
@@ -237,7 +237,7 @@ var dates = [
   },
   {
     id: 'wednesday',
-    day: 'Wednesday',
+    name: 'Wednesday',
     dates: [
       {id:1, name: '12', type: 'AM'},
       {id:2, name: '01', type: 'AM'},
@@ -267,7 +267,7 @@ var dates = [
   },
   {
     id: 'thursday',
-    day: 'Thursday',
+    name: 'Thursday',
     dates: [
       {id:1, name: '12', type: 'AM'},
       {id:2, name: '01', type: 'AM'},
@@ -297,7 +297,7 @@ var dates = [
   },
   {
     id: 'friday',
-    day: 'Friday',
+    name: 'Friday',
     dates: [
       {id:1, name: '12', type: 'AM'},
       {id:2, name: '01', type: 'AM'},
@@ -327,7 +327,7 @@ var dates = [
   },
   {
     id: 'saturday',
-    day: 'Saturday',
+    name: 'Saturday',
     dates: [
       {id:1, name: '12', type: 'AM'},
       {id:2, name: '01', type: 'AM'},
@@ -357,7 +357,7 @@ var dates = [
   },
   {
     id: 'sunday',
-    day: 'Sunday',
+    name: 'Sunday',
     dates: [
       {id:1, name: '12', type: 'AM'},
       {id:2, name: '01', type: 'AM'},

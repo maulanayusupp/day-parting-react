@@ -1,8 +1,8 @@
 .DayPartingWrapper {
     width: 730px;
-    margin: 0 auto;
-    background-color: #ECEFF4;
-    border: .5px solid #DBDBDC;
+    /*margin: 0 auto;*/
+    /*background-color: #ECEFF4;*/
+    /*border: .5px solid #DBDBDC;*/
 }
 .DayPartingWrapper__Header {
     padding: 10px;
@@ -16,15 +16,22 @@
 .DayPartingWrapper__Content {
     display: inline-block;
 }
+.dayPartingContainer {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.actionSelection {
+    padding: 10px;
+}
 .DayParting {
 	margin-top: 20px;
     padding: 0px 10px;
 }
 .ActionDayBlockWrapper {
-    padding: 10px 10px;
+    /*padding: 10px 10px;*/
 }
 .ActionDayBlockWrapper--Header {
-    margin-bottom: -36px;
+    /*margin-bottom: -36px;*/
 }
 .ActionDayBlockWrapper__Header {
 
@@ -52,13 +59,11 @@
     background-color: #cbd3db;
     /*border: .5px solid #6f859b;*/
 }
-.DayType {
-    display: inline-block;
-    width: 100px;
-    text-align: right;
-}
 .DayRow {
     margin-bottom: -6px;
+}
+.DayType {
+    text-align: right;
 }
 .Day {
     display: inline-block;

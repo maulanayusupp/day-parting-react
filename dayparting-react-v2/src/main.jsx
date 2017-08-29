@@ -51,30 +51,33 @@ class DayParting extends Component {
 	render () {
 		const { selectedItems, selectingItems, tolerance, isGlobal } = this.state
 		return (
-			<div>
-			  <p>
-			    Selecting: <span className="counter">{selectingItems.length}</span>
-			    <br />
-			    Selected: <span className="counter">{selectedItems.length}</span>
-			  </p>
-			  <SelectableGroup
-			    className="main"
-			    clickClassName="tick"
-			    enableDeselect
-			    tolerance={tolerance}
-			    globalMouse={isGlobal}
-			    allowClickWithoutSelected={false}
-			    duringSelection={this.handleSelecting}
-			    onSelectionClear={this.handleSelectionClear}
-			    onSelectionFinish={this.handleSelectionFinish}
-			  >
-			    <List days={daysData} />
-			  </SelectableGroup>
+			<div className="row">
+			  	<div className="col-lg-1">
+			    	Selecting: <span className="counter">{selectingItems.length}</span>
+			  	</div>
+
+			  	<div className="col-lg-1">
+			    	Selected: <span className="counter">{selectedItems.length}</span>
+			    </div>
+
+			    <div className="col-lg-10">
+				  	<SelectableGroup
+					    className="main"
+					    clickClassName="tick"
+					    enableDeselect
+					    tolerance={tolerance}
+					    globalMouse={isGlobal}
+					    allowClickWithoutSelected={false}
+					    duringSelection={this.handleSelecting}
+					    onSelectionClear={this.handleSelectionClear}
+					    onSelectionFinish={this.handleSelectionFinish}>
+				    	<List days={daysData} />
+				  	</SelectableGroup>
+				  </div>
 			</div>
 		)
 	}
 }
-
 
 ReactDOM.render(
   <DayParting/>,

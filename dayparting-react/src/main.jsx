@@ -47,8 +47,6 @@ class DayParting extends Component {
 				{id:23, name: '10', type: 'PM'},
 				{id:24, name: '11', type: 'PM'}
 			],
-
-
 	  	};
 	  	this.handleIsClicking = this.handleIsClicking.bind(this);
 	  	this.handleIsBlocking = this.handleIsBlocking.bind(this);
