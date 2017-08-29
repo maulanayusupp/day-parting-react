@@ -19,7 +19,36 @@ class DayParting extends Component {
 				{id:5, name: 'Friday'},
 				{id:6, name: 'Saturday'},
 				{id:7, name: 'Sunday'},
-			]
+			],
+
+			actionBlocks: [
+				{id:1, name: '12', type: 'AM'},
+				{id:2, name: '01', type: 'AM'},
+				{id:3, name: '02', type: 'AM'},
+				{id:4, name: '03', type: 'AM'},
+				{id:5, name: '04', type: 'AM'},
+				{id:6, name: '05', type: 'AM'},
+				{id:7, name: '06', type: 'AM'},
+				{id:8, name: '07', type: 'AM'},
+				{id:9, name: '08', type: 'AM'},
+				{id:10, name: '09', type: 'AM'},
+				{id:11, name: '10', type: 'AM'},
+				{id:12, name: '11', type: 'AM'},
+				{id:13, name: '12', type: 'PM'},
+				{id:14, name: '01', type: 'PM'},
+				{id:15, name: '02', type: 'PM'},
+				{id:16, name: '03', type: 'PM'},
+				{id:17, name: '04', type: 'PM'},
+				{id:18, name: '05', type: 'PM'},
+				{id:19, name: '06', type: 'PM'},
+				{id:20, name: '07', type: 'PM'},
+				{id:21, name: '08', type: 'PM'},
+				{id:22, name: '09', type: 'PM'},
+				{id:23, name: '10', type: 'PM'},
+				{id:24, name: '11', type: 'PM'}
+			],
+
+
 	  	};
 	  	this.handleIsClicking = this.handleIsClicking.bind(this);
 	  	this.handleIsBlocking = this.handleIsBlocking.bind(this);
@@ -71,14 +100,101 @@ class DayParting extends Component {
 				/>
 			);
 		}
+
+		var myActionBlocks = this.state.actionBlocks;
+		var actions = [];
+		for (var i = 0; i < myActionBlocks.length; i++) {
+			var action = myActionBlocks[i];
+			actions.push(
+				<ActionDayBlock
+					key = {action.id}
+				/>
+			)
+		}
+		var actionsHead = [];
+		for (var i = 0; i < myActionBlocks.length; i++) {
+			var action = myActionBlocks[i];
+			actionsHead.push(
+				<ActionDayBlockHeader
+					key = {action.id}
+					action = {action}
+				/>
+			)
+		}
 		return (
 			<div className="DayPartingWrapper">
-				<div
-					className = "DayParting"
-					onMouseLeave = {this.handleMouseLeave}
-				>
-					 {days}
+				<div className="row">
+					<div className="col-md-12">
+						<div className = "DayPartingWrapper__Header">
+							<div className="DayPartingWrapper__Title"> Dayparting</div>
+							<div className="DayPartingWrapper__Content">Your campaign will be scheduled using the Asia/Jakarta timezone</div>
+						</div>
+					</div>
 				</div>
+				<div className="row ActionDayBlockWrapper ActionDayBlockWrapper--Header">
+					<div className="col-md-2">
+					</div>
+					<div className="col-md-10">
+						<div className="col-md-6 ActionDayBlockWrapper__type">AM</div>
+						<div className="col-md-6 ActionDayBlockWrapper__type">PM</div>
+						<div className = "ActionDayBlockWrapper__Header">
+							{actionsHead}
+						</div>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-md-12">
+						<div
+							className = "DayParting"
+							onMouseLeave = {this.handleMouseLeave} >
+							 {days}
+						</div>
+					</div>
+				</div>
+				<div className="row ActionDayBlockWrapper">
+					<div className="col-md-2">
+					</div>
+					<div className="col-md-10">
+						<div className = "ActionDayBlockContainer">
+							{actions}
+						</div>
+					</div>
+				</div>
+			</div>
+		)
+	}
+}
+
+/* Action Day Block Header */
+class ActionDayBlockHeader extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+		};
+	}
+
+	render () {
+		return (
+			<div className="ActionDayBlock">
+				<div className="ActionDayBlock--Header">
+					{this.props.action.name}
+				</div>
+			</div>
+		)
+	}
+}
+
+/* Action Day Block Footer */
+class ActionDayBlock extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+		};
+	}
+
+	render () {
+		return (
+			<div className="ActionDayBlock">
 			</div>
 		)
 	}
@@ -137,9 +253,20 @@ class Day extends Component {
 				/>
 			);
 		}
+
+		var day = this.props.day;
 		return (
-			<div className="Day">
-				{blocks}
+			<div className="row DayRow">
+				<div className="col-md-2">
+					<div className="DayType">
+						{day.name}
+					</div>
+				</div>
+				<div className="col-md-10">
+					<div className="Day">
+						{blocks}
+					</div>
+				</div>
 			</div>
 		)
 	}
