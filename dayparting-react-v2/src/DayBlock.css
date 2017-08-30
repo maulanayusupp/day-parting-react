@@ -1,19 +1,82 @@
-.DayPartingWrapper {
-    width: 730px;
-    /*margin: 0 auto;*/
-    /*background-color: #ECEFF4;*/
-    /*border: .5px solid #DBDBDC;*/
+.main {
+  padding: 0 10px;
+  border: 1px solid #E8ECF0;
+  position: relative;
 }
-.DayPartingWrapper__Header {
+.selectable-selectbox {
+  z-index: 9000;
+  position: absolute;
+  cursor: default;
+  background: none;
+  border: 1px dashed grey;
+}
+.item {
+  background-color:#E8ECF0;
+  position: relative;
+  width: 24px;
+  height: 35px;
+  cursor: pointer;
+  float: left;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  overflow: hidden;
+}
+.item .tick {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 10px;
+  color: #009688;
+  font-weight: bold;
+  cursor: pointer;
+}
+.item h2 {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: inherit;
+  font-weight: 600;
+}
+.item.selected {
+  background: linear-gradient(#6279ae, #5870a8);
+  background-color: #cbd3db;
+  color: white;
+}
+.item.selecting {
+  border: 1px solid #6279ae;
+}
+.not-selectable {
+  display: inline-block;
+  color: #4285f4;
+}
+.counter {
+  color: #009688;
+}
+.selectable-button {
+  display: inline-block;
+  margin: 3px;
+}
+.in-selection-mode .item {
+  cursor: pointer;
+}
+
+
+
+/* New */
+.dayPartingWrapper {
+    width: 100%;
+}
+.dayPartingWrapper__Header {
     padding: 10px;
 }
-.DayPartingWrapper__Title {
+.dayPartingWrapper__Title {
     display: inline-block;
     font-size: 20px;
     font-weight: bold;
     margin-right: 15px;
 }
-.DayPartingWrapper__Content {
+.dayPartingWrapper__Content {
     display: inline-block;
 }
 .dayPartingContainer {
@@ -23,52 +86,42 @@
 .actionSelection {
     padding: 10px;
 }
-.DayParting {
+.dayParting {
 	margin-top: 20px;
     padding: 0px 10px;
 }
-.ActionDayBlockWrapper {
-    /*padding: 10px 10px;*/
+.actionDayBlockFooterWrapper {
+    padding-top: 10px;
 }
-.ActionDayBlockWrapper--Header {
-    /*margin-bottom: -36px;*/
-}
-.ActionDayBlockWrapper__Header {
-
-}
-.ActionDayBlockWrapper__type {
-    display: inline-block;
-    text-align: center;
-}
-.ActionDayBlock--Header {
+.actionDayBlock--Header {
     font-size: 10px;
     text-align: center;
     top: 2px;
     position: relative;
 }
-.ActionDayBlock {
+.actionDayBlock {
     width: 24px;
     background-color:#E8ECF0;
     height: 25px;
-    border: .5pt solid #D8D8D8;
+    border: 1pt solid #ccc;
     display: inline-block;
     cursor: pointer;
 }
-.ActionDayBlock.isClicked {
+.actionDayBlock.isClicked {
     background: linear-gradient(#6279ae, #5870a8);
     background-color: #cbd3db;
     /*border: .5px solid #6f859b;*/
 }
-.DayRow {
+.dayRow {
     margin-bottom: -6px;
 }
-.DayType {
+.dayType {
     text-align: right;
 }
-.Day {
+.day {
     display: inline-block;
 }
-.DayBlock {
+.dayBlock {
 	width: 24px;
     background-color:#E8ECF0;
     height: 35px;
@@ -82,4 +135,71 @@
 	background: linear-gradient(#6279ae, #5870a8);
     background-color: #cbd3db;
     /*border: .5px solid #6f859b;*/
+}
+.colDayLabel {
+    width: 120px;
+    margin-right: 10px;
+}
+.colBlock {
+    width: 600px;
+}
+.colTimeFooter,
+.colTimeHeader {
+    width: 115px;
+}
+.colTimeFooterBlock,
+.colTimeHeaderBlock {
+    width: 600px;
+}
+.labelActionTimeHeader {
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+}
+.itemSidebar {
+    background-color:#E8ECF0;
+    position: relative;
+    width: 24px;
+    height: 35px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow: hidden;
+}
+.actionDayActionHeaderContainer,
+.actionDayActionFooterContainer {
+    background-color: #E8ECF0;
+    position: relative;
+    margin-top: -7px;
+    width: 576px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    overflow: hidden;
+    font-size: 13px;
+}
+.dayRightRowBlockContainer {
+    display: inline-block;
+}
+.dayRightAllRowBlockContainer {
+    display: inline-block;
+}
+.dayRightAllRowBlockContainer .dayRightAllRowBlock {
+    background-color:#E8ECF0;
+    position: relative;
+    width: 35px;
+    height: 245px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    overflow: hidden;
+    font-size: 13px;
+}
+.dayRightAllRowBlockContainer .labelRightEveryHour{
+    display: inline-block;
+    width: 100px;
+    transform: rotate(270deg) translateY(-39px) translateX(-110px);
 }

@@ -64,41 +64,94 @@ class List extends Component {
       )
     }
 
+    var actionsFooter = [];
+    for (var i = 0; i < myActionBlocks.length; i++) {
+      var action = myActionBlocks[i];
+      actionsFooter.push(
+        <ActionDayBlockFooter
+          key = {action.id}
+          action = {action}
+        />
+      )
+    }
+
+    var actionsRight = [];
+    for (var i = 0; i < 7; i++) {
+      actionsRight.push(
+        <ActionDayBlockRight
+          key = {i}
+        />
+      );
+    }
+
     return (
-      <div className="dayPartingContainer">
-        <div className="not-selectable">Press ESC to clear selection</div>
-        <div className="row">
-          <div className="actionSelection">
-            <SelectAll className="selectable-button">
-              <button className="btn btn-primary">Select all</button>
+      <div className = "dayPartingContainer">
+        <div className = "not-selectable">Press ESC to clear selection</div>
+        <div className = "row">
+          <div className = "actionSelection">
+            <SelectAll key="select-all-header" className = "selectable-button">
+              <button className = "btn btn-primary">Select all</button>
             </SelectAll>
-            <DeselectAll className="selectable-button">
-              <button className="btn btn-danger">Clear selection</button>
+            <DeselectAll className = "selectable-button">
+              <button className = "btn btn-danger">Clear selection</button>
             </DeselectAll>
           </div>
         </div>
 
-        <div className="DayPartingWrapper">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className = "DayPartingWrapper__Header">
-                <div className="DayPartingWrapper__Title"> Dayparting</div>
-                <div className="DayPartingWrapper__Content">Your campaign will be scheduled using the Asia/Jakarta timezone</div>
+        <div className = "dayPartingWrapper">
+          <div className = "row">
+            <div className = "col-lg-12">
+              <div className = "dayPartingWrapper__Header">
+                <div className = "dayPartingWrapper__Title"> Dayparting</div>
+                <div className = "dayPartingWrapper__Content">Your campaign will be scheduled using the Asia/Jakarta timezone</div>
               </div>
             </div>
           </div>
-          <div className="row ActionDayBlockWrapper ActionDayBlockWrapper--Header">
-            <div className="col-lg-2">
+          <div className = "row">
+            <div className = "colTimeHeader">
             </div>
-            <div className="col-lg-10">
-              <div className="col-lg-6 ActionDayBlockWrapper__type">AM</div>
-              <div className="col-lg-6 ActionDayBlockWrapper__type">PM</div>
-              <div className = "ActionDayBlockWrapper__Header">
+            <div className = "colTimeHeaderBlock">
+              <div className = "labelActionTimeHeader">AM</div>
+              <div className = "labelActionTimeHeader">PM</div>
+              <div className = "actionHeaderBlockContainer">
                 {actionsHead}
               </div>
             </div>
           </div>
-          {myDays}
+          <div className = "row">
+            <div className = "dayContainer">
+              {myDays}
+            </div>
+            <div className = "dayRightContainer">
+              <div className = "dayRightRowBlockContainer">
+                {actionsRight}
+              </div>
+              <div className = "dayRightAllRowBlockContainer">
+                <DeselectAll className = "dayRightAllRowBlock">
+                  <div className = "labelRightEveryHour">
+                      <div>Every Hour</div>
+                  </div>
+                </DeselectAll>
+              </div>
+            </div>
+          </div>
+
+
+          <div className = "row actionDayBlockFooterWrapper">
+            <div className = "colTimeFooter">
+            </div>
+            <div className = "colTimeFooterBlock">
+              <div className = "actionDayBlockFooterContainer">
+                {actionsFooter}
+              </div>
+              <div className = "actionDayActionFooterContainer">
+                <SelectAll>
+                  <div>Every Day</div>
+                </SelectAll>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     )
@@ -115,10 +168,42 @@ class ActionDayBlockHeader extends Component {
 
   render () {
     return (
-      <div className="ActionDayBlock">
-        <div className="ActionDayBlock--Header">
+      <div className = "actionDayBlock">
+        <div className = "actionDayBlock--Header">
           {this.props.action.name}
         </div>
+      </div>
+    )
+  }
+}
+
+/* Action Day Block Footer */
+class ActionDayBlockFooter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+
+  render () {
+    return (
+      <div className = "actionDayBlock">
+      </div>
+    )
+  }
+}
+
+/* Action Day Block Footer */
+class ActionDayBlockRight extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+
+  render () {
+    return (
+      <div className = "itemSidebar">
       </div>
     )
   }
@@ -149,14 +234,14 @@ class Day extends Component {
     }
 
     return (
-      <div className="row DayRow">
-        <div className="col-lg-2">
-          <div className="DayType">
+      <div className = "row dayRow">
+        <div className = "colDayLabel">
+          <div className = "dayType">
             {day.name}
           </div>
         </div>
-        <div className="col-lg-10">
-          <div className="Day">
+        <div className = "colBlock">
+          <div className = "day">
             {myItems}
           </div>
         </div>

@@ -22672,7 +22672,7 @@ exports = module.exports = __webpack_require__(189)(undefined);
 
 
 // module
-exports.push([module.i, ".DayPartingWrapper {\n    width: 730px;\n    /*margin: 0 auto;*/\n    /*background-color: #ECEFF4;*/\n    /*border: .5px solid #DBDBDC;*/\n}\n.DayPartingWrapper__Header {\n    padding: 10px;\n}\n.DayPartingWrapper__Title {\n    display: inline-block;\n    font-size: 20px;\n    font-weight: bold;\n    margin-right: 15px;\n}\n.DayPartingWrapper__Content {\n    display: inline-block;\n}\n.dayPartingContainer {\n    padding-top: 10px;\n    padding-bottom: 20px;\n}\n.actionSelection {\n    padding: 10px;\n}\n.DayParting {\n\tmargin-top: 20px;\n    padding: 0px 10px;\n}\n.ActionDayBlockWrapper {\n    /*padding: 10px 10px;*/\n}\n.ActionDayBlockWrapper--Header {\n    /*margin-bottom: -36px;*/\n}\n.ActionDayBlockWrapper__Header {\n\n}\n.ActionDayBlockWrapper__type {\n    display: inline-block;\n    text-align: center;\n}\n.ActionDayBlock--Header {\n    font-size: 10px;\n    text-align: center;\n    top: 2px;\n    position: relative;\n}\n.ActionDayBlock {\n    width: 24px;\n    background-color:#E8ECF0;\n    height: 25px;\n    border: .5pt solid #D8D8D8;\n    display: inline-block;\n    cursor: pointer;\n}\n.ActionDayBlock.isClicked {\n    background: linear-gradient(#6279ae, #5870a8);\n    background-color: #cbd3db;\n    /*border: .5px solid #6f859b;*/\n}\n.DayRow {\n    margin-bottom: -6px;\n}\n.DayType {\n    text-align: right;\n}\n.Day {\n    display: inline-block;\n}\n.DayBlock {\n\twidth: 24px;\n    background-color:#E8ECF0;\n    height: 35px;\n    /*margin: 0.5px;*/\n    display: inline-block;\n    /*border-radius: 3px;*/\n    cursor: pointer;\n    border: .5pt solid #D8D8D8;\n}\n.DayBlock.isClicked {\n\tbackground: linear-gradient(#6279ae, #5870a8);\n    background-color: #cbd3db;\n    /*border: .5px solid #6f859b;*/\n}", ""]);
+exports.push([module.i, ".main {\n  padding: 0 10px;\n  border: 1px solid #E8ECF0;\n  position: relative;\n}\n.selectable-selectbox {\n  z-index: 9000;\n  position: absolute;\n  cursor: default;\n  background: none;\n  border: 1px dashed grey;\n}\n.item {\n  background-color:#E8ECF0;\n  position: relative;\n  width: 24px;\n  height: 35px;\n  cursor: pointer;\n  float: left;\n  text-align: center;\n  border: 1px solid #ccc;\n  padding: 10px;\n  overflow: hidden;\n}\n.item .tick {\n  position: absolute;\n  top: 4px;\n  right: 4px;\n  font-size: 10px;\n  color: #009688;\n  font-weight: bold;\n  cursor: pointer;\n}\n.item h2 {\n  font-size: 14px;\n  margin-top: 0;\n  margin-bottom: 0;\n  color: inherit;\n  font-weight: 600;\n}\n.item.selected {\n  background: linear-gradient(#6279ae, #5870a8);\n  background-color: #cbd3db;\n  color: white;\n}\n.item.selecting {\n  border: 1px solid #6279ae;\n}\n.not-selectable {\n  display: inline-block;\n  color: #4285f4;\n}\n.counter {\n  color: #009688;\n}\n.selectable-button {\n  display: inline-block;\n  margin: 3px;\n}\n.in-selection-mode .item {\n  cursor: pointer;\n}\n\n\n\n/* New */\n.dayPartingWrapper {\n    width: 100%;\n}\n.dayPartingWrapper__Header {\n    padding: 10px;\n}\n.dayPartingWrapper__Title {\n    display: inline-block;\n    font-size: 20px;\n    font-weight: bold;\n    margin-right: 15px;\n}\n.dayPartingWrapper__Content {\n    display: inline-block;\n}\n.dayPartingContainer {\n    padding-top: 10px;\n    padding-bottom: 20px;\n}\n.actionSelection {\n    padding: 10px;\n}\n.dayParting {\n\tmargin-top: 20px;\n    padding: 0px 10px;\n}\n.actionDayBlockFooterWrapper {\n    padding-top: 10px;\n}\n.actionDayBlock--Header {\n    font-size: 10px;\n    text-align: center;\n    top: 2px;\n    position: relative;\n}\n.actionDayBlock {\n    width: 24px;\n    background-color:#E8ECF0;\n    height: 25px;\n    border: 1pt solid #ccc;\n    display: inline-block;\n    cursor: pointer;\n}\n.actionDayBlock.isClicked {\n    background: linear-gradient(#6279ae, #5870a8);\n    background-color: #cbd3db;\n    /*border: .5px solid #6f859b;*/\n}\n.dayRow {\n    margin-bottom: -6px;\n}\n.dayType {\n    text-align: right;\n}\n.day {\n    display: inline-block;\n}\n.dayBlock {\n\twidth: 24px;\n    background-color:#E8ECF0;\n    height: 35px;\n    /*margin: 0.5px;*/\n    display: inline-block;\n    /*border-radius: 3px;*/\n    cursor: pointer;\n    border: .5pt solid #D8D8D8;\n}\n.DayBlock.isClicked {\n\tbackground: linear-gradient(#6279ae, #5870a8);\n    background-color: #cbd3db;\n    /*border: .5px solid #6f859b;*/\n}\n.colDayLabel {\n    width: 120px;\n    margin-right: 10px;\n}\n.colBlock {\n    width: 600px;\n}\n.colTimeFooter,\n.colTimeHeader {\n    width: 115px;\n}\n.colTimeFooterBlock,\n.colTimeHeaderBlock {\n    width: 600px;\n}\n.labelActionTimeHeader {\n    display: inline-block;\n    text-align: center;\n    width: 50%;\n}\n.itemSidebar {\n    background-color:#E8ECF0;\n    position: relative;\n    width: 24px;\n    height: 35px;\n    cursor: pointer;\n    text-align: center;\n    border: 1px solid #ccc;\n    padding: 10px;\n    overflow: hidden;\n}\n.actionDayActionHeaderContainer,\n.actionDayActionFooterContainer {\n    background-color: #E8ECF0;\n    position: relative;\n    margin-top: -7px;\n    width: 576px;\n    cursor: pointer;\n    text-align: center;\n    border: 1px solid #ccc;\n    padding: 5px;\n    overflow: hidden;\n    font-size: 13px;\n}\n.dayRightRowBlockContainer {\n    display: inline-block;\n}\n.dayRightAllRowBlockContainer {\n    display: inline-block;\n}\n.dayRightAllRowBlockContainer .dayRightAllRowBlock {\n    background-color:#E8ECF0;\n    position: relative;\n    width: 35px;\n    height: 245px;\n    cursor: pointer;\n    text-align: center;\n    border: 1px solid #ccc;\n    padding: 5px;\n    overflow: hidden;\n    font-size: 13px;\n}\n.dayRightAllRowBlockContainer .labelRightEveryHour{\n    display: inline-block;\n    width: 100px;\n    transform: rotate(270deg) translateY(-39px) translateX(-110px);\n}", ""]);
 
 // exports
 
@@ -24604,6 +24604,22 @@ var List = function (_Component) {
         }));
       }
 
+      var actionsFooter = [];
+      for (var i = 0; i < myActionBlocks.length; i++) {
+        var action = myActionBlocks[i];
+        actionsFooter.push(_react2.default.createElement(ActionDayBlockFooter, {
+          key: action.id,
+          action: action
+        }));
+      }
+
+      var actionsRight = [];
+      for (var i = 0; i < 7; i++) {
+        actionsRight.push(_react2.default.createElement(ActionDayBlockRight, {
+          key: i
+        }));
+      }
+
       return _react2.default.createElement(
         'div',
         { className: 'dayPartingContainer' },
@@ -24620,7 +24636,7 @@ var List = function (_Component) {
             { className: 'actionSelection' },
             _react2.default.createElement(
               _reactSelectableFast.SelectAll,
-              { className: 'selectable-button' },
+              { key: 'select-all-header', className: 'selectable-button' },
               _react2.default.createElement(
                 'button',
                 { className: 'btn btn-primary' },
@@ -24640,7 +24656,7 @@ var List = function (_Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'DayPartingWrapper' },
+          { className: 'dayPartingWrapper' },
           _react2.default.createElement(
             'div',
             { className: 'row' },
@@ -24649,15 +24665,15 @@ var List = function (_Component) {
               { className: 'col-lg-12' },
               _react2.default.createElement(
                 'div',
-                { className: 'DayPartingWrapper__Header' },
+                { className: 'dayPartingWrapper__Header' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'DayPartingWrapper__Title' },
+                  { className: 'dayPartingWrapper__Title' },
                   ' Dayparting'
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'DayPartingWrapper__Content' },
+                  { className: 'dayPartingWrapper__Content' },
                   'Your campaign will be scheduled using the Asia/Jakarta timezone'
                 )
               )
@@ -24665,29 +24681,90 @@ var List = function (_Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'row ActionDayBlockWrapper ActionDayBlockWrapper--Header' },
-            _react2.default.createElement('div', { className: 'col-lg-2' }),
+            { className: 'row' },
+            _react2.default.createElement('div', { className: 'colTimeHeader' }),
             _react2.default.createElement(
               'div',
-              { className: 'col-lg-10' },
+              { className: 'colTimeHeaderBlock' },
               _react2.default.createElement(
                 'div',
-                { className: 'col-lg-6 ActionDayBlockWrapper__type' },
+                { className: 'labelActionTimeHeader' },
                 'AM'
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-lg-6 ActionDayBlockWrapper__type' },
+                { className: 'labelActionTimeHeader' },
                 'PM'
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'ActionDayBlockWrapper__Header' },
+                { className: 'actionHeaderBlockContainer' },
                 actionsHead
               )
             )
           ),
-          myDays
+          _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              'div',
+              { className: 'dayContainer' },
+              myDays
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'dayRightContainer' },
+              _react2.default.createElement(
+                'div',
+                { className: 'dayRightRowBlockContainer' },
+                actionsRight
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'dayRightAllRowBlockContainer' },
+                _react2.default.createElement(
+                  _reactSelectableFast.DeselectAll,
+                  { className: 'dayRightAllRowBlock' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'labelRightEveryHour' },
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      'Every Hour'
+                    )
+                  )
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'row actionDayBlockFooterWrapper' },
+            _react2.default.createElement('div', { className: 'colTimeFooter' }),
+            _react2.default.createElement(
+              'div',
+              { className: 'colTimeFooterBlock' },
+              _react2.default.createElement(
+                'div',
+                { className: 'actionDayBlockFooterContainer' },
+                actionsFooter
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'actionDayActionFooterContainer' },
+                _react2.default.createElement(
+                  _reactSelectableFast.SelectAll,
+                  null,
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    'Every Day'
+                  )
+                )
+              )
+            )
+          )
         )
       );
     }
@@ -24716,10 +24793,10 @@ var ActionDayBlockHeader = function (_Component2) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'ActionDayBlock' },
+        { className: 'actionDayBlock' },
         _react2.default.createElement(
           'div',
-          { className: 'ActionDayBlock--Header' },
+          { className: 'actionDayBlock--Header' },
           this.props.action.name
         )
       );
@@ -24729,19 +24806,69 @@ var ActionDayBlockHeader = function (_Component2) {
   return ActionDayBlockHeader;
 }(_react.Component);
 
+/* Action Day Block Footer */
+
+
+var ActionDayBlockFooter = function (_Component3) {
+  _inherits(ActionDayBlockFooter, _Component3);
+
+  function ActionDayBlockFooter(props) {
+    _classCallCheck(this, ActionDayBlockFooter);
+
+    var _this3 = _possibleConstructorReturn(this, (ActionDayBlockFooter.__proto__ || Object.getPrototypeOf(ActionDayBlockFooter)).call(this, props));
+
+    _this3.state = {};
+    return _this3;
+  }
+
+  _createClass(ActionDayBlockFooter, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('div', { className: 'actionDayBlock' });
+    }
+  }]);
+
+  return ActionDayBlockFooter;
+}(_react.Component);
+
+/* Action Day Block Footer */
+
+
+var ActionDayBlockRight = function (_Component4) {
+  _inherits(ActionDayBlockRight, _Component4);
+
+  function ActionDayBlockRight(props) {
+    _classCallCheck(this, ActionDayBlockRight);
+
+    var _this4 = _possibleConstructorReturn(this, (ActionDayBlockRight.__proto__ || Object.getPrototypeOf(ActionDayBlockRight)).call(this, props));
+
+    _this4.state = {};
+    return _this4;
+  }
+
+  _createClass(ActionDayBlockRight, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('div', { className: 'itemSidebar' });
+    }
+  }]);
+
+  return ActionDayBlockRight;
+}(_react.Component);
+
 /* Day */
 
 
-var Day = function (_Component3) {
-  _inherits(Day, _Component3);
+var Day = function (_Component5) {
+  _inherits(Day, _Component5);
 
   function Day(props) {
     _classCallCheck(this, Day);
 
-    var _this3 = _possibleConstructorReturn(this, (Day.__proto__ || Object.getPrototypeOf(Day)).call(this, props));
+    var _this5 = _possibleConstructorReturn(this, (Day.__proto__ || Object.getPrototypeOf(Day)).call(this, props));
 
-    _this3.state = {};
-    return _this3;
+    _this5.state = {};
+    return _this5;
   }
 
   _createClass(Day, [{
@@ -24762,22 +24889,22 @@ var Day = function (_Component3) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'row DayRow' },
+        { className: 'row dayRow' },
         _react2.default.createElement(
           'div',
-          { className: 'col-lg-2' },
+          { className: 'colDayLabel' },
           _react2.default.createElement(
             'div',
-            { className: 'DayType' },
+            { className: 'dayType' },
             day.name
           )
         ),
         _react2.default.createElement(
           'div',
-          { className: 'col-lg-10' },
+          { className: 'colBlock' },
           _react2.default.createElement(
             'div',
-            { className: 'Day' },
+            { className: 'day' },
             myItems
           )
         )
