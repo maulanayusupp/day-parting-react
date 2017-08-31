@@ -91,7 +91,7 @@
     padding: 0px 10px;
 }
 .actionDayBlockFooterWrapper {
-    padding-top: 10px;
+    padding-top: 5px;
 }
 .actionDayBlock--Header {
     font-size: 10px;
@@ -168,10 +168,10 @@
     overflow: hidden;
 }
 .actionDayActionHeaderContainer,
-.actionDayActionFooterContainer {
+.actionDayActionFooterContainer .actionDayActionFooterBlock {
     background-color: #E8ECF0;
     position: relative;
-    margin-top: -7px;
+    margin-top: -6px;
     width: 576px;
     cursor: pointer;
     text-align: center;

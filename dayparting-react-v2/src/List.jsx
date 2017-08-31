@@ -6,35 +6,73 @@ class List extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        actionBlocks: [
-          {id:1, name: '12', type: 'AM'},
-          {id:2, name: '01', type: 'AM'},
-          {id:3, name: '02', type: 'AM'},
-          {id:4, name: '03', type: 'AM'},
-          {id:5, name: '04', type: 'AM'},
-          {id:6, name: '05', type: 'AM'},
-          {id:7, name: '06', type: 'AM'},
-          {id:8, name: '07', type: 'AM'},
-          {id:9, name: '08', type: 'AM'},
-          {id:10, name: '09', type: 'AM'},
-          {id:11, name: '10', type: 'AM'},
-          {id:12, name: '11', type: 'AM'},
-          {id:13, name: '12', type: 'PM'},
-          {id:14, name: '01', type: 'PM'},
-          {id:15, name: '02', type: 'PM'},
-          {id:16, name: '03', type: 'PM'},
-          {id:17, name: '04', type: 'PM'},
-          {id:18, name: '05', type: 'PM'},
-          {id:19, name: '06', type: 'PM'},
-          {id:20, name: '07', type: 'PM'},
-          {id:21, name: '08', type: 'PM'},
-          {id:22, name: '09', type: 'PM'},
-          {id:23, name: '10', type: 'PM'},
-          {id:24, name: '11', type: 'PM'}
+        actionBlocksheader: [
+          {id:1, name: '12', type: 'AM', selected: false},
+          {id:2, name: '01', type: 'AM', selected: false},
+          {id:3, name: '02', type: 'AM', selected: false},
+          {id:4, name: '03', type: 'AM', selected: false},
+          {id:5, name: '04', type: 'AM', selected: false},
+          {id:6, name: '05', type: 'AM', selected: false},
+          {id:7, name: '06', type: 'AM', selected: false},
+          {id:8, name: '07', type: 'AM', selected: false},
+          {id:9, name: '08', type: 'AM', selected: false},
+          {id:10, name: '09', type: 'AM', selected: false},
+          {id:11, name: '10', type: 'AM', selected: false},
+          {id:12, name: '11', type: 'AM', selected: false},
+          {id:13, name: '12', type: 'PM', selected: false},
+          {id:14, name: '01', type: 'PM', selected: false},
+          {id:15, name: '02', type: 'PM', selected: false},
+          {id:16, name: '03', type: 'PM', selected: false},
+          {id:17, name: '04', type: 'PM', selected: false},
+          {id:18, name: '05', type: 'PM', selected: false},
+          {id:19, name: '06', type: 'PM', selected: false},
+          {id:20, name: '07', type: 'PM', selected: false},
+          {id:21, name: '08', type: 'PM', selected: false},
+          {id:22, name: '09', type: 'PM', selected: false},
+          {id:23, name: '10', type: 'PM', selected: false},
+          {id:24, name: '11', type: 'PM', selected: false}
+        ],
+        actionBlocksFooter: [
+          {id:1, name: '12', type: 'AM', selected: false},
+          {id:2, name: '01', type: 'AM', selected: false},
+          {id:3, name: '02', type: 'AM', selected: false},
+          {id:4, name: '03', type: 'AM', selected: false},
+          {id:5, name: '04', type: 'AM', selected: false},
+          {id:6, name: '05', type: 'AM', selected: false},
+          {id:7, name: '06', type: 'AM', selected: false},
+          {id:8, name: '07', type: 'AM', selected: false},
+          {id:9, name: '08', type: 'AM', selected: false},
+          {id:10, name: '09', type: 'AM', selected: false},
+          {id:11, name: '10', type: 'AM', selected: false},
+          {id:12, name: '11', type: 'AM', selected: false},
+          {id:13, name: '12', type: 'PM', selected: false},
+          {id:14, name: '01', type: 'PM', selected: false},
+          {id:15, name: '02', type: 'PM', selected: false},
+          {id:16, name: '03', type: 'PM', selected: false},
+          {id:17, name: '04', type: 'PM', selected: false},
+          {id:18, name: '05', type: 'PM', selected: false},
+          {id:19, name: '06', type: 'PM', selected: false},
+          {id:20, name: '07', type: 'PM', selected: false},
+          {id:21, name: '08', type: 'PM', selected: false},
+          {id:22, name: '09', type: 'PM', selected: false},
+          {id:23, name: '10', type: 'PM', selected: false},
+          {id:24, name: '11', type: 'PM', selected: false}
+        ],
+        actionBlocksRight: [
+          {id:1, name: 'monday', selected: false},
+          {id:2, name: 'tuesday', selected: false},
+          {id:3, name: 'wednesday', selected: false},
+          {id:4, name: 'thursday', selected: false},
+          {id:5, name: 'friday', selected: false},
+          {id:6, name: 'saturday', selected: false},
+          {id:7, name: 'sunday', selected: false},
         ],
       }
   }
+
   shouldComponentUpdate(nextProps) {
+    console.log("New Props Selecting: " + this.props.selectingItems.length)
+    console.log("New Props Selected: " + this.props.selectedItems.length)
     return nextProps.items !== this.props.items
   }
 
@@ -52,10 +90,10 @@ class List extends Component {
       )
     }
 
-    var myActionBlocks = this.state.actionBlocks;
+    var myBlocksHeader = this.state.actionBlocksheader;
     var actionsHead = [];
-    for (var i = 0; i < myActionBlocks.length; i++) {
-      var action = myActionBlocks[i];
+    for (var i = 0; i < myBlocksHeader.length; i++) {
+      var action = myBlocksHeader[i];
       actionsHead.push(
         <ActionDayBlockHeader
           key = {action.id}
@@ -64,9 +102,10 @@ class List extends Component {
       )
     }
 
+    var myBlocksFooter = this.state.actionBlocksFooter;
     var actionsFooter = [];
-    for (var i = 0; i < myActionBlocks.length; i++) {
-      var action = myActionBlocks[i];
+    for (var i = 0; i < myBlocksFooter.length; i++) {
+      var action = myBlocksFooter[i];
       actionsFooter.push(
         <ActionDayBlockFooter
           key = {action.id}
@@ -75,11 +114,13 @@ class List extends Component {
       )
     }
 
+    var myBlocksRight = this.state.actionBlocksRight;
     var actionsRight = [];
-    for (var i = 0; i < 7; i++) {
+    for (var i = 0; i < myBlocksRight.length; i++) {
+      var action = myBlocksRight[i];
       actionsRight.push(
         <ActionDayBlockRight
-          key = {i}
+          key = {action.id}
         />
       );
     }
@@ -145,13 +186,54 @@ class List extends Component {
                 {actionsFooter}
               </div>
               <div className = "actionDayActionFooterContainer">
-                <SelectAll>
+                <SelectAll className = "actionDayActionFooterBlock">
                   <div>Every Day</div>
                 </SelectAll>
               </div>
             </div>
           </div>
 
+        </div>
+      </div>
+    )
+  }
+}
+
+/* Day */
+class Day extends Component {
+  constructor(props) {
+    super(props);
+      this.state = {
+      };
+  }
+
+  render () {
+    var items = this.props.items;
+    var day = this.props.day;
+    var myItems = [];
+    for (var i = 0; i < items.length ; i++) {
+      var item = items[i];
+      myItems.push(
+        <Item
+          key = {`${day.id}${i}`}
+          day =  {day.name}
+          name = {item.name}
+          type = {item.type}
+        />
+      );
+    }
+
+    return (
+      <div className = "row dayRow">
+        <div className = "colDayLabel">
+          <div className = "dayType">
+            {day.name}
+          </div>
+        </div>
+        <div className = "colBlock">
+          <div className = "day">
+            {myItems}
+          </div>
         </div>
       </div>
     )
@@ -209,44 +291,4 @@ class ActionDayBlockRight extends Component {
   }
 }
 
-/* Day */
-class Day extends Component {
-  constructor(props) {
-    super(props);
-      this.state = {
-      };
-  }
-
-  render () {
-    var items = this.props.items;
-    var day = this.props.day;
-    var myItems = [];
-    for (var i = 0; i < items.length ; i++) {
-      var item = items[i];
-      myItems.push(
-        <Item
-          key = {`${day.id}${i}`}
-          day =  {day.name}
-          name = {item.name}
-          type = {item.type}
-        />
-      );
-    }
-
-    return (
-      <div className = "row dayRow">
-        <div className = "colDayLabel">
-          <div className = "dayType">
-            {day.name}
-          </div>
-        </div>
-        <div className = "colBlock">
-          <div className = "day">
-            {myItems}
-          </div>
-        </div>
-      </div>
-    )
-  }
-}
 export default List

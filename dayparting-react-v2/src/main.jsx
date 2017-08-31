@@ -33,6 +33,7 @@ class DayParting extends Component {
 				day: selected.props.day,
 				name: selected.props.name,
 				type: selected.props.type,
+				state: selected.state,
 			}
 			dates.push(date)
 		}
@@ -71,7 +72,11 @@ class DayParting extends Component {
 					    duringSelection={this.handleSelecting}
 					    onSelectionClear={this.handleSelectionClear}
 					    onSelectionFinish={this.handleSelectionFinish}>
-				    	<List days={daysData} />
+				    	<List
+				    		days = {daysData}
+				    		selectedItems = {selectedItems}
+				    		selectingItems = {selectingItems}
+				    	/>
 				  	</SelectableGroup>
 				  </div>
 			</div>
