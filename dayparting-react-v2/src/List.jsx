@@ -127,18 +127,6 @@ class List extends Component {
 
     return (
       <div className = "dayPartingContainer">
-        <div className = "not-selectable">Press ESC to clear selection</div>
-        <div className = "row">
-          <div className = "actionSelection">
-            <SelectAll key="select-all-header" className = "selectable-button">
-              <button className = "btn btn-primary">Select all</button>
-            </SelectAll>
-            <DeselectAll className = "selectable-button">
-              <button className = "btn btn-danger">Clear selection</button>
-            </DeselectAll>
-          </div>
-        </div>
-
         <div className = "dayPartingWrapper">
           <div className = "row">
             <div className = "col-lg-12">
@@ -176,8 +164,6 @@ class List extends Component {
               </div>
             </div>
           </div>
-
-
           <div className = "row actionDayBlockFooterWrapper">
             <div className = "colTimeFooter">
             </div>
