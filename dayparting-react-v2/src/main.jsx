@@ -1,32 +1,39 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import styles from "./DayBlock.css"
-import daysData from './sample-data'
+// import daysData from './sample-data'
 
-import { SelectableGroup } from 'react-selectable-fast'
+import { SelectableGroup, S } from 'react-selectable-fast'
 import List from './List.jsx'
 
+import { observer, inject, Provider } from "mobx-react"
+import dayPartingStore from './DayPartingStore.jsx'
+
 /* Day Parting */
+class DayPartingContainer extends Component {
+	render() {
+		return (
+			<Provider store={dayPartingStore}>
+				<DayParting />
+			</Provider>
+		)
+	}
+}
+
+@inject("store") @observer
 class DayParting extends Component {
 	constructor(props) {
 	  	super(props);
-	  	this.state = {
-	  		selectedItems: [],
-		    selectingItems: [],
-		    tolerance: 0,
-	  	};
 	  	this.handleSelecting = this.handleSelecting.bind(this);
 	  	this.handleSelectionFinish = this.handleSelectionFinish.bind(this);
 	}
 
 	handleSelecting (selectingItems) {
-		this.setState({
-			selectingItems: selectingItems
-		})
+		this.props.store.onSelectingItems(selectingItems);
 	}
 
 	handleSelectionFinish (selectedItems) {
-		var dates = [];
+		/*var dates = [];
 		for (var i = 0; i < selectedItems.length; i++) {
 			var selected = selectedItems[i];
 			var date = {
@@ -36,13 +43,10 @@ class DayParting extends Component {
 				state: selected.state,
 			}
 			dates.push(date)
-		}
-		console.log(dates)
-		this.setState({
-			selectedItems: selectedItems,
-			selectingItems: [],
-		})
-		console.log(`Finished selection ${selectedItems.length}`)
+		}*/
+		this.props.store.onSelectedItems(selectedItems);
+		this.props.store.onSelectingItems([]);
+		console.log(`Finished selection ${this.props.store.selectedItems.length}`)
 	}
 
 	handleSelectionClear() {
@@ -50,7 +54,7 @@ class DayParting extends Component {
 	}
 
 	render () {
-		const { selectedItems, selectingItems, tolerance, isGlobal } = this.state
+		const { selectedItems, selectingItems } = this.props.store
 		return (
 			<div className="row">
 			  	<div className="col-lg-1">
@@ -66,16 +70,15 @@ class DayParting extends Component {
 					    className="main"
 					    clickClassName="tick"
 					    enableDeselect
-					    tolerance={tolerance}
-					    globalMouse={isGlobal}
+					    tolerance={0}
+					    globalMouse={false}
 					    allowClickWithoutSelected={false}
 					    duringSelection={this.handleSelecting}
 					    onSelectionClear={this.handleSelectionClear}
 					    onSelectionFinish={this.handleSelectionFinish}>
 				    	<List
-				    		days = {daysData}
-				    		selectedItems = {selectedItems}
-				    		selectingItems = {selectingItems}
+				    		selectedItems = {this.props.store.selectedItems}
+				    		selectingItems = {this.props.store.selectingItems}
 				    	/>
 				  	</SelectableGroup>
 				  </div>
@@ -85,6 +88,6 @@ class DayParting extends Component {
 }
 
 ReactDOM.render(
-  <DayParting/>,
+  <DayPartingContainer/>,
   document.getElementById('dayparting')
 );

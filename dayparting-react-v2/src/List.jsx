@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { SelectAll, DeselectAll } from 'react-selectable-fast'
 import Item from './Item.jsx'
+import { observer, inject } from "mobx-react"
 
+@inject('store') @observer
 class List extends Component {
   constructor(props) {
       super(props);
@@ -71,13 +73,16 @@ class List extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    console.log("New Props Selecting: " + this.props.selectingItems.length)
-    console.log("New Props Selected: " + this.props.selectedItems.length)
     return nextProps.items !== this.props.items
   }
 
+  componentWillReceiveProps(nextProps) {
+    // console.log("New Props Selecting: " + this.props.selectingItems.length)
+    // console.log("New Props Selected: " + this.props.selectedItems.length)
+  }
+
   render() {
-    var days = this.props.days;
+    var days = this.props.store.dates;
     var myDays = []
     for (var i = 0; i < days.length; i++) {
       var day = days[i];
