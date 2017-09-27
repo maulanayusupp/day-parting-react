@@ -1,3 +1,4 @@
-# Day Parting Table with Vanilla Script
-# Day Parting Table with React JS
-# Day Parting Table with Selectable Fast
+# Day Parting Table
+1. Javascript
+2. React without external library
+3. React with external library using `selectable fast` - version 2
